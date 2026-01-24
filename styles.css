@@ -602,6 +602,27 @@ body {
     color: white !important;
     border-color: #dc3545 !important;
     font-weight: bold !important;
+
+}
+/* SELECTED STATE OVERRIDES - Must be more specific than event type styles */
+.calendar-day.selected.is-holiday,
+.calendar-day.selected.is-tradition,
+.calendar-day.selected.has-pagan,
+.calendar-day.selected.has-anniversary,
+.calendar-day.selected.is-holiday.is-tradition,
+.calendar-day.selected.is-holiday.has-pagan,
+.calendar-day.selected.is-holiday.has-anniversary,
+.calendar-day.selected.is-tradition.has-pagan,
+.calendar-day.selected.is-tradition.has-anniversary,
+.calendar-day.selected.has-pagan.has-anniversary,
+.calendar-day.selected.is-holiday.is-tradition.has-pagan,
+.calendar-day.selected.is-holiday.is-tradition.has-anniversary,
+.calendar-day.selected.is-holiday.has-pagan.has-anniversary,
+.calendar-day.selected.is-tradition.has-pagan.has-anniversary {
+    background: #dc3545 !important;
+    color: white !important;
+    border: 2px solid #dc3545 !important;
+    font-weight: bold !important;
 }
 .modal-overlay {
     display: none; 
