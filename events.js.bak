@@ -205,17 +205,7 @@ if (meetingBtn) {
     document.getElementById('langToggle').onclick = (e) => {
         state.isPolish = !state.isPolish;
         e.target.innerText = state.isPolish ? 'PL' : 'EN';
-        
-        // Re-render the currently visible content page
-        if (document.getElementById('culturalHub').style.display !== 'none') {
-            renderCulturalHub(state);
-        } else if (document.getElementById('rulesPage').style.display !== 'none') {
-            renderRulesPage(state);
-        } else if (document.getElementById('helpPage').style.display !== 'none') {
-            import('./pages/help.js').then(m => m.updateHelpPage(state.isPolish));
-        }
-        
-        render();
+        render(); 
     };
 
     document.getElementById('repeatYearBtn').onclick = () => {
