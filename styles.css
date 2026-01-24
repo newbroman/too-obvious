@@ -369,7 +369,7 @@ body {
 
 .calendar-day.holiday { border: 2px solid var(--accent-color) !important; color: var(--accent-color) !important; font-weight: 900 !important; }
 .calendar-day.today-highlight { background-color: var(--gold) !important; color: #000 !important; border: none !important; font-weight: 800; box-shadow: 0 0 8px rgba(184, 134, 11, 0.5); }
-.calendar-day.selected { background: var(--accent-color) !important; color: white !important; border-color: var(--accent-color) !important; }
+.calendar-day.selected { background: #dc3545 !important; color: white !important; border-color: #dc3545 !important; font-weight: bold !important; }
 
 /* Navigation Row & Arrows */
 .nav-controls-row {
@@ -598,9 +598,10 @@ body {
 
 /* Selected state should still pop */
 .calendar-day.selected {
-    border-top-color: white !important;
+    background: #dc3545 !important;
     color: white !important;
-    background: var(--accent-color) !important;
+    border-color: #dc3545 !important;
+    font-weight: bold !important;
 }
 .modal-overlay {
     display: none; 
