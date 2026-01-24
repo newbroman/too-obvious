@@ -72,7 +72,7 @@ function render() {
     // Update all visible page translations
     const helpPage = document.getElementById('helpPage');
     if (helpPage && helpPage.style.display !== 'none') {
-        import('./help.js').then(m => m.updateHelpPage(state.isPolish));
+        updateHelpPage(state.isPolish);
     }
     
     // Update Culture page back button

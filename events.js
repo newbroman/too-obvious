@@ -137,7 +137,7 @@ if (meetingBtn) {
     
     document.getElementById('navHelp').onclick = () => {
         showSection('help');
-        import('./help.js').then(m => m.updateHelpPage(state.isPolish));
+        import('./pages/help.js').then(m => m.updateHelpPage(state.isPolish));
     };
 
     // Use event delegation for dynamically created navSearch buttons (culture page + help page)
@@ -388,7 +388,7 @@ export function renderCulturalHub(state) {
             </div>
         </section>
         <section class="info-block" style="margin-bottom: 20px;">
-            <h3>🎈 ${state.isPolish ? 'Wydarzenia i Święta' : 'Holidays & Traditions'}</h3>
+            <h3>📊 ${state.isPolish ? 'Święta państwowe, tradycje i wydarzenia historyczne' : 'Bank holidays, traditions and historical events'}</h3>
             <div class="holiday-list">`;
 
     let foundHoliday = false;
@@ -417,58 +417,31 @@ export function renderCulturalHub(state) {
         }
     });
 
+    // Check for pagan traditions on this date
+    if (typeof paganTraditions !== 'undefined' && paganTraditions.hasPaganTradition(state.selectedDate)) {
+        const tradition = paganTraditions.getPaganTradition(state.selectedDate, state.isPolish);
+        const icon = paganTraditions.getIcon(tradition.type);
+        const color = paganTraditions.getColor(tradition.type);
+        
+        html += `
+            <div class="holiday-entry tradition-item" style="background: linear-gradient(135deg, ${color}22 0%, ${color}11 100%); border-left: 4px solid ${color};">
+                <div class="holiday-type-tag" style="background: ${color}; color: white;">${state.isPolish ? 'TRADYCJA POGAŃSKA' : 'PAGAN TRADITION'}</div>
+                <div class="holiday-title">
+                    <strong>${icon} ${tradition.name}</strong>
+                </div>
+                <p class="holiday-desc">${tradition.description}</p>
+            </div>`;
+        foundHoliday = true;
+    }
+
+
     if (!foundHoliday) {
         html += `<p class="no-data">${state.isPolish ? 'Brak głównych świąt w tym miesiącu.' : 'No major holidays this month.'}</p>`;
     }
 
     html += `</div></section>
         
-        <section class="info-block" style="margin-bottom: 20px;">
-            <h3>📊 ${state.isPolish ? 'Święta państwowe, tradycje i wydarzenia historyczne' : 'Bank holidays, traditions and historical events'}</h3>
-            <div style="display: flex; flex-direction: column; gap: 10px; margin: 15px 0; padding: 15px; background: rgba(128,128,128,0.05); border-radius: 8px;">
-                
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="width: 45px; height: 45px; background-color: rgba(220, 53, 69, 0.08); border-top: 5px solid #dc3545; border-bottom: 5px solid #dc3545; border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;"></div>
-                    <div style="flex: 1;">
-                        <strong style="color: #dc3545;">${state.isPolish ? 'Święta Państwowe' : 'Official Holidays'}</strong>
-                        <div style="font-size: 0.85rem; color: var(--text-dim);">${state.isPolish ? 'Dni wolne od pracy z podwójnymi czerwonymi paskami' : 'National public holidays with double red bars'}</div>
-                    </div>
-                </div>
-                
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="width: 45px; height: 45px; background-color: rgba(33, 150, 243, 0.08); border-top: 5px solid #2196f3; border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;"></div>
-                    <div style="flex: 1;">
-                        <strong style="color: #2196f3;">${state.isPolish ? 'Tradycje Kulturowe' : 'Cultural Traditions'}</strong>
-                        <div style="font-size: 0.85rem; color: var(--text-dim);">${state.isPolish ? 'Ważne uroczystości kulturowe z niebieskim paskiem u góry' : 'Important cultural celebrations with blue top bar'}</div>
-                    </div>
-                </div>
-                
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="width: 45px; height: 45px; background-color: rgba(255, 152, 0, 0.08); border-top: 5px solid #ff9800; border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;"></div>
-                    <div style="flex: 1;">
-                        <strong style="color: #ff9800;">${state.isPolish ? 'Wydarzenia Historyczne' : 'Historical Events'}</strong>
-                        <div style="font-size: 0.85rem; color: var(--text-dim);">${state.isPolish ? 'Ważne daty w historii Polski z pomarańczowym paskiem u góry' : 'Significant dates in Polish history with orange top bar'}</div>
-                    </div>
-                </div>
-                
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="width: 45px; height: 45px; background-color: rgba(156, 39, 176, 0.08); border-top: 5px solid #9c27b0; border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;"></div>
-                    <div style="flex: 1;">
-                        <strong style="color: #9c27b0;">${state.isPolish ? 'Rocznice Historyczne' : 'Historical Anniversaries'}</strong>
-                        <div style="font-size: 0.85rem; color: var(--text-dim);">${state.isPolish ? 'Okrągłe rocznice wydarzeń z przeszłości z fioletowym paskiem u góry' : 'Milestone anniversaries of past events with purple top bar'}</div>
-                    </div>
-                </div>
-                
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="width: 45px; height: 45px; background-color: rgba(76, 175, 80, 0.08); border-top: 5px solid #4caf50; border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;"></div>
-                    <div style="flex: 1;">
-                        <strong style="color: #4caf50;">${state.isPolish ? 'Tradycje Pogańskie' : 'Pagan Traditions'}</strong>
-                        <div style="font-size: 0.85rem; color: var(--text-dim);">${state.isPolish ? 'Starożytne słowiańskie święta z zielonym paskiem u góry' : 'Ancient Slavic celebrations with green top bar'}</div>
-                    </div>
-                </div>
-                
-            </div>
-        </section>
+        
         </div>`;
 
     hub.innerHTML = html;
