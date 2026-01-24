@@ -156,3 +156,66 @@ The app now provides comprehensive coverage of Polish culture:
 - 33+ significant dates in Polish history
 - From ancient times to modern independence
 - Battles, unions, and cultural milestones
+
+---
+
+## Version History
+
+### v1.4.06 (2026-01-24)
+**Complete UI Polish - Final Fixes**
+
+#### ✅ Calendar Page Improvements:
+1. **Day Name Phonetics Added** - Phonetic phrase now includes day of week pronunciation (e.g., "poh-nyeh-jah-wek" for Monday)
+2. **Font Size Hierarchy Fixed**:
+   - Main phrase: 1.2rem (largest)
+   - Phonetic: 0.95rem (smaller)
+   - English: 0.8rem (smallest)
+
+#### ✅ Culture Page Fixes:
+3. **Pagan Traditions Removed from Top** - No longer displays in separate section at top of page
+4. **Pagan Tradition Tag Background** - Removed green background from tag, now uses default styling
+
+#### ✅ Navigation Fixes:
+5. **Rules Page Back Button** - Now properly floats in top-left corner with !important overrides
+
+#### 📝 Documentation:
+6. **Internal Folder Renamed** - Changed from v1400 to v1406 for consistency
+7. **README.md Updated** - Added comprehensive changelog
+
+#### Files Changed:
+- `components/info-panel.js` - Added day name phonetics to phrase
+- `styles/components/info-panel.css` - Fixed font size hierarchy
+- `events.js` - Removed pagan traditions top section, fixed tag styling
+- `index.html` - Added !important to rules back button positioning
+- `README.md` - Added changelog
+
+---
+
+### v1.4.05 (2026-01-24)
+**Polish and Formatting Release**
+
+- ✅ Pagan traditions reformatted and moved to bottom
+- ✅ Holidays heading updated
+- ✅ Help page back button fixed
+- ✅ Help page translation fixed
+- ✅ Rules page back button positioning added
+
+---
+
+### v1.4.04 (2026-01-24)
+**Comprehensive Bug Fix Release**
+
+- ✅ Script paths fixed
+- ✅ Name search fixed
+- ✅ Pagan traditions scripts loading
+- ✅ Help page headers translation
+- ✅ Grammar page headers translation
+
+---
+
+### v1.4.00 (2026-01-24)
+**Major Reorganization**
+
+- 📁 Created folder structure: `data/`, `utils/`, `pages/`, `components/`
+- 📦 Moved 13 files to appropriate folders
+- 🔄 Renamed files for clarity

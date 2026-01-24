@@ -317,46 +317,6 @@ export function renderCulturalHub(state) {
             }
             return '';
         })()}
-        ${(() => {
-            // Pagan Traditions Section
-            if (typeof paganTraditions !== 'undefined' && paganTraditions.hasPaganTradition(state.selectedDate)) {
-                const tradition = paganTraditions.getPaganTradition(state.selectedDate, state.isPolish);
-                const icon = paganTraditions.getIcon(tradition.type);
-                const color = paganTraditions.getColor(tradition.type);
-                
-                let paganHtml = `
-                    <div style="margin-bottom: 20px;">
-                        <h3 style="color: ${color}; display: flex; align-items: center; gap: 8px;">
-                            ${icon} ${state.isPolish ? 'Tradycje Pogańskie' : 'Pagan Traditions'}
-                        </h3>
-                        <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(129, 199, 132, 0.1) 100%); 
-                                    border-left: 4px solid ${color}; 
-                                    border-radius: 8px; 
-                                    padding: 16px; 
-                                    margin-top: 12px;">`;
-                
-                paganHtml += `
-                        <div style="padding: 12px; background: var(--card-bg, white); border-radius: 6px; border-left: 3px solid ${color};">
-                            <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px;">
-                                <span style="font-size: 1.2rem;">${icon}</span>
-                                <div style="flex: 1;">
-                                    <div style="font-size: 0.85rem; color: ${color}; font-weight: 600; text-transform: uppercase;">
-                                        ${state.isPolish ? tradition.type === 'solstice' ? 'Przesilenie' : tradition.type === 'equinox' ? 'Równonoc' : tradition.type === 'ancestors' ? 'Przodkowie' : 'Żniwa' : tradition.type.charAt(0).toUpperCase() + tradition.type.slice(1)}
-                                    </div>
-                                    <div style="font-weight: 600; color: var(--text-main); margin-top: 2px;">${tradition.name}</div>
-                                </div>
-                            </div>
-                            <p style="margin: 0; font-size: 0.95rem; line-height: 1.5; color: var(--text-dim);">${tradition.description}</p>
-                        </div>`;
-                
-                paganHtml += `
-                        </div>
-                    </div>`;
-                
-                return paganHtml;
-            }
-            return '';
-        })()}
         <div class="season-box" style="margin-bottom: 20px;">
             <span class="season-icon">${getSeasonIcon(monthInfo.season)}</span>
             <strong>${state.isPolish ? 'Pora roku' : 'Season'}:</strong> 
@@ -425,7 +385,7 @@ export function renderCulturalHub(state) {
         
         html += `
             <div class="holiday-entry tradition-item" style="background: linear-gradient(135deg, ${color}22 0%, ${color}11 100%); border-left: 4px solid ${color};">
-                <div class="holiday-type-tag" style="background: ${color}; color: white;">${state.isPolish ? 'TRADYCJA POGAŃSKA' : 'PAGAN TRADITION'}</div>
+                <div class="holiday-type-tag">${state.isPolish ? 'TRADYCJA POGAŃSKA' : 'PAGAN TRADITION'}</div>
                 <div class="holiday-title">
                     <strong>${icon} ${tradition.name}</strong>
                 </div>

@@ -60,7 +60,12 @@ export function updateInfoPanel(selectedDate, includeYear, isFormal) {
     
     // For phonetics, we need to add the day name pronunciation if you have it, 
     // otherwise, we start with the day number:
-    let fullPhonetic = `${dayPhonetic} ${monthPhonetic}`;
+    // Get day name phonetic
+    const dayNamesPl = ["niedziela", "poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota"];
+    const dayNamePl_lower = dayNamesPl[dayOfWeek];
+    const dayNamePhonetic = phonetics.days[dayNamePl_lower] || dayNamePl;
+    
+    let fullPhonetic = `${dayNamePhonetic}, ${dayPhonetic} ${monthPhonetic}`;
 
     // 4. Year Logic
     if (includeYear) {
