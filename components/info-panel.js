@@ -1,23 +1,27 @@
-// info-panel.js - Display date information in Polish and English
+/**
+ * ui-renderer.js - Simplified with Grammar Rules Removed
+ */
+import { getWrittenDay, getPhoneticDay, getYearPolish, getYearPhonetic } from '../utils/numbers.js';
+import phonetics from '../data/phonetics.js';
+import holidayData from '../data/holidays.js';
+import { hasCulturalData } from '../utils/dates.js';
+import { colorizePolishPhrase } from '../utils/colors.js';
 
-export function updateInfoPanel(selectedDate, isFormal, includeYear, phonetics) {
-    const infoPanel = document.getElementById('info-panel');
-    if (!infoPanel) return;
+export function updateInfoPanel(selectedDate, includeYear, isFormal) {
+    const plDisplay = document.getElementById('plPhrase');
+    const enDisplay = document.getElementById('enPhrase');
+    const phoneticDisplay = document.getElementById('phoneticPhrase');
+    const holidayDisplay = document.getElementById('holidayName'); 
+    const footer = document.querySelector('.info-panel');
+
+    if (!selectedDate || !plDisplay) return;
 
     const day = selectedDate.getDate();
     const monthIndex = selectedDate.getMonth();
     const year = selectedDate.getFullYear();
-    const dayOfWeek = selectedDate.getDay();
 
- // 1. Theme Styling
-    const header = document.getElementById('info-header');
-    const footer = document.getElementById('info-footer');
-
-    if (header) {
-        header.classList.toggle('formal-theme', isFormal);
-        header.classList.toggle('informal-theme', !isFormal);
-    }
-
+    // 1. Remove Grammar Tips & Apply Visual Theme
+    // Tip logic removed here as it is now in rules.js
     if (footer) {
         footer.classList.toggle('formal-theme', isFormal);
         footer.classList.toggle('informal-theme', !isFormal);
@@ -65,121 +69,108 @@ export function updateInfoPanel(selectedDate, isFormal, includeYear, phonetics) 
 
     // 4. Year Logic
     if (includeYear) {
-        // Now correctly define yearSpelling and yearPhonetic here
-        const yearSpelling = getWrittenYear(year, isFormal);
-        const yearPhonetic = getPhoneticYear(year, isFormal);
+        const yearSpelling = getYearPolish(year, true); 
+        const yearPhonetic = getYearPhonetic(year, true);
+        
+        const suffixPl = "roku";
+        const suffixPhonetic = "ro-koo";
 
-        fullPl += ` ${yearSpelling}`;
-        fullEn += `, ${year}`;
-        fullPhonetic += ` ${yearPhonetic}`;
+        fullPl += `, ${yearSpelling} ${suffixPl}`;
+        fullEn += `, ${year < 0 ? Math.abs(year) + ' BC' : year}`;
+        fullPhonetic += `, ${yearPhonetic} ${suffixPhonetic}`;
     }
-
-    // 5. Render to DOM
-    infoPanel.innerHTML = `
-        <div class="info-row">
-            <span class="label">Polish:</span>
-            <span class="value">${fullPl}</span>
-        </div>
-        <div class="info-row">
-            <span class="label">Phonetic:</span>
-            <span class="value phonetic">${fullPhonetic}</span>
-        </div>
-        <div class="info-row">
-            <span class="label">English:</span>
-            <span class="value">${fullEn}</span>
-        </div>
-    `;
+    
+  // 5. Holiday Display
+    const holidays = holidayData.getHolidaysForYear(year);
+    const holidayKey = `${monthIndex}-${day}`;
+    
+    if (holidayDisplay) {
+        if (holidays[holidayKey]) {
+            // Using currentMonthKey ensures it says "stycznia" (Genitive) 
+            // instead of "Styczeń" (Nominative)
+            holidayDisplay.innerHTML = `<span class="month-label">${currentMonthKey}:</span> 🎉 ${holidays[holidayKey]}`;
+            holidayDisplay.style.display = "block";
+        } else {
+            holidayDisplay.style.display = "none";
+        }
+    }
+    
+    // 6. Historical Date Notice
+    const historicalNotice = document.getElementById('historicalNotice');
+    if (historicalNotice) {
+        if (!hasCulturalData(year)) {
+            historicalNotice.innerHTML = `<span style="color: #8b5a2b;">⚠️ Historical dates (before 1000 AD) have limited cultural data</span>`;
+            historicalNotice.style.display = "block";
+        } else {
+            historicalNotice.style.display = "none";
+        }
+    }
+    
+   // 7. Update UI - Trimmed to remove potential leading spaces
+    // Use innerHTML with color coding for Polish phrase
+    plDisplay.innerHTML = colorizePolishPhrase(fullPl.trim(), includeYear);
+    enDisplay.innerText = fullEn.trim();
+    phoneticDisplay.innerText = fullPhonetic.trim();
 }
 
-// Helper functions for day/year spelling and phonetics
-function getWrittenDay(day, isFormal) {
-    // Your existing logic here
-    const dayMap = {
-        1: isFormal ? "pierwszego" : "pierwszy",
-        2: isFormal ? "drugiego" : "drugi",
-        3: isFormal ? "trzeciego" : "trzeci",
-        4: isFormal ? "czwartego" : "czwarty",
-        5: isFormal ? "piątego" : "piąty",
-        6: isFormal ? "szóstego" : "szósty",
-        7: isFormal ? "siódmego" : "siódmy",
-        8: isFormal ? "ósmego" : "ósmy",
-        9: isFormal ? "dziewiątego" : "dziewiąty",
-        10: isFormal ? "dziesiątego" : "dziesiąty",
-        11: isFormal ? "jedenastego" : "jedenasty",
-        12: isFormal ? "dwunastego" : "dwunasty",
-        13: isFormal ? "trzynastego" : "trzynasty",
-        14: isFormal ? "czternastego" : "czternasty",
-        15: isFormal ? "piętnastego" : "piętnasty",
-        16: isFormal ? "szesnastego" : "szesnasty",
-        17: isFormal ? "siedemnastego" : "siedemnasty",
-        18: isFormal ? "osiemnastego" : "osiemnasty",
-        19: isFormal ? "dziewiętnastego" : "dziewiętnasty",
-        20: isFormal ? "dwudziestego" : "dwudziesty",
-        21: isFormal ? "dwudziestego pierwszego" : "dwudziesty pierwszy",
-        22: isFormal ? "dwudziestego drugiego" : "dwudziesty drugi",
-        23: isFormal ? "dwudziestego trzeciego" : "dwudziesty trzeci",
-        24: isFormal ? "dwudziestego czwartego" : "dwudziesty czwarty",
-        25: isFormal ? "dwudziestego piątego" : "dwudziesty piąty",
-        26: isFormal ? "dwudziestego szóstego" : "dwudziesty szósty",
-        27: isFormal ? "dwudziestego siódmego" : "dwudziesty siódmy",
-        28: isFormal ? "dwudziestego ósmego" : "dwudziesty ósmy",
-        29: isFormal ? "dwudziestego dziewiątego" : "dwudziesty dziewiąty",
-        30: isFormal ? "trzydziestego" : "trzydziesty",
-        31: isFormal ? "trzydziestego pierwszego" : "trzydziesty pierwszy"
-    };
-    return dayMap[day] || day.toString();
+function getEnglishSuffix(i) {
+    const j = i % 10, k = i % 100;
+    if (j == 1 && k != 11) return "st";
+    if (j == 2 && k != 12) return "nd";
+    if (j == 3 && k != 13) return "rd";
+    return "th";
 }
 
-function getPhoneticDay(day, isFormal) {
-    const phoneticMap = {
-        1: isFormal ? "pyer-fsheh-go" : "pyer-fshi",
-        2: isFormal ? "droo-gye-go" : "droo-gi",
-        3: isFormal ? "tsheh-chye-go" : "tsheh-chi",
-        4: isFormal ? "chfar-teh-go" : "chfar-ti",
-        5: isFormal ? "pyon-teh-go" : "pyon-ti",
-        6: isFormal ? "shoos-teh-go" : "shoos-ti",
-        7: isFormal ? "shyood-meh-go" : "shyood-mi",
-        8: isFormal ? "oos-meh-go" : "oos-mi",
-        9: isFormal ? "djeh-vyon-teh-go" : "djeh-vyon-ti",
-        10: isFormal ? "djeh-shon-teh-go" : "djeh-shon-ti",
-        11: isFormal ? "yeh-deh-nas-teh-go" : "yeh-deh-nas-ti",
-        12: isFormal ? "dvoo-nas-teh-go" : "dvoo-nas-ti",
-        13: isFormal ? "tshi-nas-teh-go" : "tshi-nas-ti",
-        14: isFormal ? "chtehr-nas-teh-go" : "chtehr-nas-ti",
-        15: isFormal ? "pyent-nas-teh-go" : "pyent-nas-ti",
-        16: isFormal ? "shes-nas-teh-go" : "shes-nas-ti",
-        17: isFormal ? "shye-dem-nas-teh-go" : "shye-dem-nas-ti",
-        18: isFormal ? "o-shem-nas-teh-go" : "o-shem-nas-ti",
-        19: isFormal ? "djeh-vyent-nas-teh-go" : "djeh-vyent-nas-ti",
-        20: isFormal ? "dvoo-djyes-teh-go" : "dvoo-djyes-ti",
-        21: isFormal ? "dvoo-djyes-teh-go pyer-fsheh-go" : "dvoo-djyes-ti pyer-fshi",
-        22: isFormal ? "dvoo-djyes-teh-go droo-gye-go" : "dvoo-djyes-ti droo-gi",
-        23: isFormal ? "dvoo-djyes-teh-go tsheh-chye-go" : "dvoo-djyes-ti tsheh-chi",
-        24: isFormal ? "dvoo-djyes-teh-go chfar-teh-go" : "dvoo-djyes-ti chfar-ti",
-        25: isFormal ? "dvoo-djyes-teh-go pyon-teh-go" : "dvoo-djyes-ti pyon-ti",
-        26: isFormal ? "dvoo-djyes-teh-go shoos-teh-go" : "dvoo-djyes-ti shoos-ti",
-        27: isFormal ? "dvoo-djyes-teh-go shyood-meh-go" : "dvoo-djyes-ti shyood-mi",
-        28: isFormal ? "dvoo-djyes-teh-go oos-meh-go" : "dvoo-djyes-ti oos-mi",
-        29: isFormal ? "dvoo-djyes-teh-go djeh-vyon-teh-go" : "dvoo-djyes-ti djeh-vyon-ti",
-        30: isFormal ? "tshi-djyes-teh-go" : "tshi-djyes-ti",
-        31: isFormal ? "tshi-djyes-teh-go pyer-fsheh-go" : "tshi-djyes-ti pyer-fshi"
-    };
-    return phoneticMap[day] || day.toString();
+/**
+ * Audio Engine
+ */
+export function speakPolish() {
+    const text = document.getElementById('plPhrase').innerText;
+    if (!text || text === "Wybierz datę") return;
+
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'pl-PL';
+    utterance.rate = 0.85; 
+    window.speechSynthesis.speak(utterance);
 }
 
-function getWrittenYear(year, isFormal) {
-    return isFormal ? `roku ${year}` : `rok ${year}`;
-}
 
-function getPhoneticYear(year, isFormal) {
-    return isFormal ? `ro-koo ${year}` : `rok ${year}`;
-}
-
-function getEnglishSuffix(day) {
-    if (day >= 11 && day <= 13) return 'th';
-    const lastDigit = day % 10;
-    if (lastDigit === 1) return 'st';
-    if (lastDigit === 2) return 'nd';
-    if (lastDigit === 3) return 'rd';
-    return 'th';
+// Update namedays display when date changes
+export async function updateNamedaysDisplay(selectedDate) {
+    console.log('updateNamedaysDisplay called with date:', selectedDate);
+    const list = document.getElementById('namedaysList');
+    console.log('Found namedaysList element:', list);
+    
+    if (!list || !selectedDate) {
+        console.log('Early return - list or selectedDate missing');
+        return;
+    }
+    
+    try {
+        // Call the global function from namedays.js
+        if (typeof window.getNamesForDate === 'function') {
+            console.log('Calling window.getNamesForDate...');
+            const names = await window.getNamesForDate(selectedDate);
+            console.log('Received names:', names);
+            
+            if (names && names.length > 0) {
+                // Get language state from app
+                const isPolish = window.state?.isPolish || false;
+                const label = isPolish ? "Dzisiejsze imieniny:" : "Today's Name Days are:";
+                const html = `<p style="font-weight: bold; margin: 0 0 8px 0; color: #666;">${label}</p><p class="namedays-names">${names.join(', ')}</p>`;
+                console.log('Setting innerHTML to:', html);
+                list.innerHTML = html;
+            } else {
+                const noNamesMsg = isPolish ? 'Brak imienin w tym dniu' : 'No name days found for this date';
+                list.innerHTML = `<p class="namedays-placeholder">${noNamesMsg}</p>`;
+            }
+        } else {
+            console.log('window.getNamesForDate is not a function');
+        }
+    } catch (error) {
+        console.error('Error updating namedays:', error);
+        const errorMsg = isPolish ? 'Błąd ładowania imienin' : 'Error loading name days';
+        list.innerHTML = `<p class="namedays-placeholder">${errorMsg}</p>`;
+    }
 }
