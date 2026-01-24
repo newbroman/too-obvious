@@ -334,12 +334,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         navigator.serviceWorker.register('sw.js')
     }
-});
-// Keep these at the very bottom for debugging
-window.render = render;
-window.state = state;
     } catch (error) {
         console.error('Fatal initialization error:', error);
         document.body.innerHTML = '<div style="padding: 20px; text-align: center;"><h2>Application Error</h2><p>Failed to initialize. Please refresh the page.</p></div>';
     }
+});
+// Keep these at the very bottom for debugging
+window.render = render;
+window.state = state;
 window.renderCalendarGrid = renderCalendarGrid;
