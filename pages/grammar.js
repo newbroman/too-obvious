@@ -3,7 +3,7 @@
  * Focus: Cardinal vs Ordinal, Nominative vs Genitive
  */
 
-import { COLORS } from './utils/colors.js';
+import { COLORS } from '../utils/colors.js';
 
 // Helper function to colorize grammatical terms and examples
 function colorTerm(text, type) {

@@ -1,4 +1,5 @@
-const CACHE_NAME = 'pl-date-v1400';
+const CACHE_NAME = 'pl-date-v1401';
+const VERSION = '1.4.01'; // Major.Minor.Patch
 const ASSETS = [
     '/',
     '/index.html',
@@ -39,23 +40,37 @@ const ASSETS = [
 ];
 
 self.addEventListener('install', (event) => {
+    console.log(`[SW v${VERSION}] Installing...`);
     event.waitUntil(
-        caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS))
+        caches.open(CACHE_NAME).then((cache) => {
+            console.log(`[SW v${VERSION}] Caching assets`);
+            return cache.addAll(ASSETS);
+        })
     );
 });
 
 self.addEventListener('fetch', (event) => {
     event.respondWith(
-        caches.match(event.request).then((response) => response || fetch(event.request))
+        caches.match(event.request).then((response) => {
+            if (response) {
+                return response;
+            }
+            return fetch(event.request).catch((error) => {
+                console.error(`[SW v${VERSION}] Fetch failed:`, error);
+                throw error;
+            });
+        })
     );
 });
 
 self.addEventListener('activate', (event) => {
+    console.log(`[SW v${VERSION}] Activating...`);
     event.waitUntil(
         caches.keys().then((cacheNames) => {
             return Promise.all(
                 cacheNames.map((cacheName) => {
                     if (cacheName !== CACHE_NAME) {
+                        console.log(`[SW v${VERSION}] Deleting old cache: ${cacheName}`);
                         return caches.delete(cacheName);
                     }
                 })

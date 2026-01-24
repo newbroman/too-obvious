@@ -1,7 +1,7 @@
 /**
  * numbers.js - Logic for Polish number-to-word conversion.
  */
-import phonetics from './data/phonetics.js';
+import phonetics from '../data/phonetics.js';
 
 /**
  * Returns the written Polish ordinal day.

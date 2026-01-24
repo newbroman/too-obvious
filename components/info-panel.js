@@ -1,11 +1,11 @@
 /**
  * ui-renderer.js - Simplified with Grammar Rules Removed
  */
-import { getWrittenDay, getPhoneticDay, getYearPolish, getYearPhonetic } from './utils/numbers.js';
-import phonetics from './data/phonetics.js';
-import holidayData from './data/holidays.js';
-import { hasCulturalData } from './utils/dates.js';
-import { colorizePolishPhrase } from './utils/colors.js';
+import { getWrittenDay, getPhoneticDay, getYearPolish, getYearPhonetic } from '../utils/numbers.js';
+import phonetics from '../data/phonetics.js';
+import holidayData from '../data/holidays.js';
+import { hasCulturalData } from '../utils/dates.js';
+import { colorizePolishPhrase } from '../utils/colors.js';
 
 export function updateInfoPanel(selectedDate, includeYear, isFormal) {
     const plDisplay = document.getElementById('plPhrase');
