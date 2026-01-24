@@ -505,11 +505,12 @@ body {
 .content-page em { background: rgba(184, 134, 11, 0.1); padding: 2px 5px; border-radius: 4px; font-style: normal; color: var(--tan); }
 
 /* Section visibility shield */
+/* Section visibility shield */
 #calendarSection, #culturalHub, #rulesPage {
     width: 100% !important;
     padding-bottom: 220px !important;
-    flex-direction: column;
-    align-items: center;
+    display: block !important;
+    position: relative !important;
 }
 
 /* --- 8. Holiday & Rule Details --- */
