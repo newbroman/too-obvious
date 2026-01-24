@@ -289,6 +289,11 @@ const paganTraditions = {
     }
 };
 
+// Make available globally for browser
+if (typeof window !== 'undefined') {
+    window.paganTraditions = paganTraditions;
+}
+
 // Export for use in other modules
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = paganTraditions;
