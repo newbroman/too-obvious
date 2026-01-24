@@ -385,7 +385,7 @@ export function renderCulturalHub(state) {
             
             html += `
                 <div class="holiday-entry tradition-item" style="background: linear-gradient(135deg, #9c27b022 0%, #9c27b011 100%); border-left: 4px solid #9c27b0; box-shadow: 0 0 10px rgba(156, 39, 176, 0.2);">
-                    <div class="holiday-type-tag" style="background: #9c27b0; color: white;">${state.isPolish ? 'ROCZNICA HISTORYCZNA' : 'HISTORICAL ANNIVERSARY'}</div>
+                    <div class="holiday-type-tag" style="color: #9c27b0;">${state.isPolish ? 'ROCZNICA HISTORYCZNA' : 'HISTORICAL ANNIVERSARY'}</div>
                     <div class="holiday-title">
                         <strong>${era.icon} ${eventName}</strong>
                         <div style="font-size: 0.85rem; color: #9c27b0; font-weight: 600; margin-top: 4px;">${anniv.yearsAgo} ${state.isPolish ? 'lat temu' : 'years ago'} (${yearDisplay})</div>

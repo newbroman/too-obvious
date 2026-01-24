@@ -1701,6 +1701,7 @@ body {
     background-color: rgba(156, 39, 176, 0.15) !important;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(156, 39, 176, 0.2);
+}
 
 /* ========================================
    COMBINATION STYLES: Holiday + Other Events
@@ -1737,6 +1738,79 @@ body {
     background: linear-gradient(180deg, rgba(255, 152, 0, 0.08) 0%, rgba(220, 53, 69, 0.08) 100%) !important;
 }
 
+}
+
+
+/* ========================================
+   NON-HOLIDAY COMBINATIONS
+   When traditions, pagan events, and anniversaries overlap
+   ======================================== */
+
+/* Tradition + Pagan (Blue top, Green bottom) */
+.calendar-day.is-tradition.has-pagan {
+    border-top-color: #2196f3 !important;
+    border-bottom-color: #4caf50 !important;
+    background: linear-gradient(180deg, rgba(33, 150, 243, 0.08) 0%, rgba(76, 175, 80, 0.08) 100%) !important;
+}
+
+/* Tradition + Anniversary (Blue top, Purple bottom) */
+.calendar-day.is-tradition.has-anniversary {
+    border-top-color: #2196f3 !important;
+    border-bottom-color: #9c27b0 !important;
+    background: linear-gradient(180deg, rgba(33, 150, 243, 0.08) 0%, rgba(156, 39, 176, 0.08) 100%) !important;
+}
+
+/* Pagan + Anniversary (Green top, Purple bottom) */
+.calendar-day.has-pagan.has-anniversary {
+    border-top-color: #4caf50 !important;
+    border-bottom-color: #9c27b0 !important;
+    background: linear-gradient(180deg, rgba(76, 175, 80, 0.08) 0%, rgba(156, 39, 176, 0.08) 100%) !important;
+}
+
+/* THREE-WAY COMBINATIONS */
+
+/* Holiday + Tradition + Pagan */
+.calendar-day.is-holiday.is-tradition.has-pagan {
+    border-top: 3px solid #2196f3 !important;
+    border-bottom: 3px solid #dc3545 !important;
+    border-left: 3px solid #4caf50 !important;
+    background: linear-gradient(135deg, 
+        rgba(33, 150, 243, 0.08) 0%, 
+        rgba(76, 175, 80, 0.08) 50%, 
+        rgba(220, 53, 69, 0.08) 100%) !important;
+}
+
+/* Holiday + Tradition + Anniversary */
+.calendar-day.is-holiday.is-tradition.has-anniversary {
+    border-top: 3px solid #2196f3 !important;
+    border-bottom: 3px solid #dc3545 !important;
+    border-right: 3px solid #9c27b0 !important;
+    background: linear-gradient(135deg, 
+        rgba(33, 150, 243, 0.08) 0%, 
+        rgba(156, 39, 176, 0.08) 50%, 
+        rgba(220, 53, 69, 0.08) 100%) !important;
+}
+
+/* Holiday + Pagan + Anniversary */
+.calendar-day.is-holiday.has-pagan.has-anniversary {
+    border-top: 3px solid #4caf50 !important;
+    border-bottom: 3px solid #dc3545 !important;
+    border-right: 3px solid #9c27b0 !important;
+    background: linear-gradient(135deg, 
+        rgba(76, 175, 80, 0.08) 0%, 
+        rgba(156, 39, 176, 0.08) 50%, 
+        rgba(220, 53, 69, 0.08) 100%) !important;
+}
+
+/* Tradition + Pagan + Anniversary (no holiday) */
+.calendar-day.is-tradition.has-pagan.has-anniversary {
+    border-top: 3px solid #2196f3 !important;
+    border-bottom: 3px solid #4caf50 !important;
+    border-right: 3px solid #9c27b0 !important;
+    background: linear-gradient(135deg, 
+        rgba(33, 150, 243, 0.08) 0%, 
+        rgba(76, 175, 80, 0.08) 50%, 
+        rgba(156, 39, 176, 0.08) 100%) !important;
 }
 
 .anniversary-badge {
