@@ -198,6 +198,10 @@ const paganTraditions = {
             en: "Koliada - Part of the 12-day winter solstice celebration (Sviatki). Each day has special rituals. Carolers (kolędnicy) go house to house singing ritual songs that blend blessing, entertainment, and mild threat ('give us treats or we'll curse your crops!'). Special breads (kolach) are shared. Bonfires help the sun regain strength. Young people divine their marriage prospects. The name may derive from Latin 'calendae' (first day of month) or from the Slavic word for 'wheel' (solar symbol).",
             pl: "Część 12-dniowego święta przesilenia zimowego. Rytualne kolędowanie, dzielenie się specjalnym chlebem, spotkania wspólnotowe i czci powrotu słońca. Od łacińskiego 'calendae' (pierwszy dzień miesiąca)."
         },
+        "Koliada (Epiphany - End)": {
+            en: "Koliada (Epiphany - End) - The final day of the 12-day Koliada/Sviatki celebration, coinciding with Christian Epiphany (Trzech Króli). The sun has been reborn and strengthened. Final caroling rounds, last divination rituals, and feasting mark the transition from sacred time back to ordinary days. The boundary between worlds closes. Many traditions were absorbed into Epiphany celebrations, including the blessing of homes with chalk inscriptions (K+M+B).",
+            pl: "Koliada (Koniec Objawienia) - Ostatni dzień 12-dniowego święta Koliady/Świątek, zbiegający się z chrześcijańskim Objawieniem Pańskim (Trzech Króli). Słońce odrodziło się i wzmocniło. Ostatnie kolędowanie, ostatnie rytuały wróżbiarskie i ucztowanie oznaczają przejście z czasu świętego z powrotem do zwykłych dni. Granica między światami się zamyka."
+        },
         "Spring Equinox (Jare Gody)": {
             en: "Jare Gody (Spring Celebrations) - balance of day and night. Time for spring rituals, welcoming warmth, preparing for planting season. Ancient Slavs celebrated earth's awakening from winter sleep.",
             pl: "Jare Gody - równowaga dnia i nocy. Czas na wiosenne rytuały, witanie ciepła, przygotowania do sezonu sadzenia. Starożytni Słowianie świętowali przebudzenie ziemi ze snu zimowego."

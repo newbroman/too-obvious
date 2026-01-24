@@ -1370,7 +1370,7 @@ button.back-to-cal,
 .content-page .back-to-cal,
 #culturalHub .back-to-cal,
 #rulesPage .back-to-cal {
-    position: fixed !important;  /* STICKY - floats within content box */
+    position: absolute !important;  /* ABSOLUTE - floats within content box top right */
     top: 20px !important;
     right: 20px !important;
     left: auto !important;
@@ -1732,7 +1732,6 @@ body {
 .has-pagan {
     border-top-color: #4caf50 !important;
     background-color: rgba(76, 175, 80, 0.08) !important;
-    color: #2e7d32;
     position: relative;
 }
 
@@ -1751,6 +1750,5 @@ body {
     .has-pagan {
         background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
         border-color: #4caf50;
-        color: #e8f5e9;
     }
 }
