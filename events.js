@@ -122,7 +122,27 @@ if (meetingBtn) {
     // --- 3. Click Listeners ---
     document.getElementById('navCalendar').onclick = () => {
         showSection('calendar');
-        render(); 
+        state.selectedDate = new Date(); // Auto-select today
+        state.viewDate = new Date();     // Show current month
+        render();
+    };
+    document.getElementById('navCalendar').onclick = () => {
+        showSection('calendar');
+        state.selectedDate = new Date(); // Auto-select today
+        state.viewDate = new Date();     // Show current month
+        render();
+    };
+    document.getElementById('navCalendar').onclick = () => {
+        showSection('calendar');
+        state.selectedDate = new Date(); // Auto-select today
+        state.viewDate = new Date();     // Show current month
+        render();
+    };
+    document.getElementById('navCalendar').onclick = () => {
+        showSection('calendar');
+        state.selectedDate = new Date(); // Auto-select today
+        state.viewDate = new Date();     // Show current month
+        render();
     };
 
     document.getElementById('navCulture').onclick = () => {

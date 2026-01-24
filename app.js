@@ -203,17 +203,14 @@ if (holidayName) {
     
     // Check for anniversary on this date
     const anniv = hasAnniversary(cellDate);
-    if (anniv && !historicalEvent) {
+    if (anniv) {
         daySquare.classList.add('has-anniversary');
         // Anniversary styling applied via CSS only
     }
     
     // Check for pagan tradition on this date
     if (typeof paganTraditions !== 'undefined' && paganTraditions.hasPaganTradition(cellDate)) {
-        // Only add if no historical event or anniversary (pagan gets lower priority)
-        if (!historicalEvent && !anniv) {
-            daySquare.classList.add('has-pagan');
-        }
+        daySquare.classList.add('has-pagan');
     }
 
     const isToday = day === today.getDate() && 
