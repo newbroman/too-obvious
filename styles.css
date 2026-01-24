@@ -1701,6 +1701,42 @@ body {
     background-color: rgba(156, 39, 176, 0.15) !important;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(156, 39, 176, 0.2);
+
+/* ========================================
+   COMBINATION STYLES: Holiday + Other Events
+   When a holiday coincides with another event:
+   - Top border: Event color (tradition/pagan/anniversary)
+   - Bottom border: Holiday red (#dc3545)
+   ======================================== */
+
+/* Holiday + Tradition (Blue top, Red bottom) */
+.calendar-day.is-holiday.is-tradition {
+    border-top-color: #2196f3 !important;
+    border-bottom-color: #dc3545 !important;
+    background: linear-gradient(180deg, rgba(33, 150, 243, 0.08) 0%, rgba(220, 53, 69, 0.08) 100%) !important;
+}
+
+/* Holiday + Pagan (Green top, Red bottom) */
+.calendar-day.is-holiday.has-pagan {
+    border-top-color: #4caf50 !important;
+    border-bottom-color: #dc3545 !important;
+    background: linear-gradient(180deg, rgba(76, 175, 80, 0.08) 0%, rgba(220, 53, 69, 0.08) 100%) !important;
+}
+
+/* Holiday + Anniversary (Purple top, Red bottom) */
+.calendar-day.is-holiday.has-anniversary {
+    border-top-color: #9c27b0 !important;
+    border-bottom-color: #dc3545 !important;
+    background: linear-gradient(180deg, rgba(156, 39, 176, 0.08) 0%, rgba(220, 53, 69, 0.08) 100%) !important;
+}
+
+/* Holiday + Historical Event (Orange top, Red bottom) */
+.calendar-day.is-holiday.has-historical-event {
+    border-top-color: #ff9800 !important;
+    border-bottom-color: #dc3545 !important;
+    background: linear-gradient(180deg, rgba(255, 152, 0, 0.08) 0%, rgba(220, 53, 69, 0.08) 100%) !important;
+}
+
 }
 
 .anniversary-badge {
