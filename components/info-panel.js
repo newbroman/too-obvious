@@ -1,4 +1,9 @@
 /**
+ * Info panel component for displaying date information
+ * Shows namedays, holidays, and cultural information
+ */
+
+/**
  * ui-renderer.js - Simplified with Grammar Rules Removed
  */
 import { getWrittenDay, getPhoneticDay, getYearPolish, getYearPhonetic } from '../utils/numbers.js';

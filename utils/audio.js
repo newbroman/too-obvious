@@ -1,4 +1,9 @@
 /**
+ * Audio playback and text-to-speech functionality
+ * Handles Polish pronunciation using Web Speech API
+ */
+
+/**
  * audio.js - Cross-Browser Speech Engine
  */
 

@@ -1,14 +1,18 @@
 // Development mode flag
 const DEV_MODE = false;
 
-// Add error boundary wrapper function at the top
+/**
+ * Safe event handler wrapper that catches and logs errors
+ * @param {Function} handler - The event handler function to wrap
+ * @param {string} [errorContext='Event handler'] - Context description for error logging
+ * @returns {Function} Wrapped handler function with error boundary
+ */
 function safeEventHandler(handler, errorContext = 'Event handler') {
     return function(...args) {
         try {
             return handler.apply(this, args);
         } catch (error) {
             console.error(`${errorContext} error:`, error);
-            // Optionally show user-friendly error message
             return null;
         }
     };
@@ -292,11 +296,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (infoBtn && aboutModal) {
         infoBtn.addEventListener('click', safeEventHandler(() => {
             aboutModal.style.display = 'block';
-        });
+        }));
 
-        closeBtn?.addEventListener('click', () => {
+        closeBtn?.addEventListener('click', safeEventHandler(() => {
             aboutModal.style.display = 'none';
-        });
+        }));
 
         window.addEventListener('click', (event) => {
             if (event.target === aboutModal) {
@@ -304,9 +308,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        feedbackBtn?.addEventListener('click', () => {
-            // Replace this URL once your Google Form is ready
+        feedbackBtn?.addEventListener('click', safeEventHandler(() => {
             window.open('https://forms.gle/YOUR_FORM_ID', '_blank');
+        }));
         });
     }
     

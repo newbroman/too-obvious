@@ -1,4 +1,9 @@
 /**
+ * Event handling and user interaction management
+ * Handles calendar navigation, audio playback, search functionality, and page routing
+ */
+
+/**
  * events.js - Fixed Integration
  */
 import { speakText, unlockAudio, checkVoices } from './utils/audio.js';

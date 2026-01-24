@@ -1,5 +1,5 @@
-const CACHE_NAME = 'pl-date-v1431';
-const VERSION = '1.4.31'; // Major.Minor.Patch
+const CACHE_NAME = 'pl-date-v1432';
+const VERSION = '1.4.32'; // Major.Minor.Patch
 const ASSETS = [
     '/',
     '/index.html',
@@ -7,7 +7,9 @@ const ASSETS = [
     '/sw.js',
     '/manifest.json',
     '/icon-192.png',
+    '/icon-192.webp',
     '/icon-512.png',
+    '/icon-512.webp',
     
     // Data files
     '/data/cultural.js',
