@@ -1,4 +1,9 @@
 /**
+ * Info panel component for displaying date information
+ * Shows namedays, holidays, and cultural information
+ */
+
+/**
  * ui-renderer.js - Simplified with Grammar Rules Removed
  */
 import { getWrittenDay, getPhoneticDay, getYearPolish, getYearPhonetic } from '../utils/numbers.js';
@@ -138,35 +143,28 @@ export function speakPolish() {
 
 // Update namedays display when date changes
 export async function updateNamedaysDisplay(selectedDate) {
-    console.log('updateNamedaysDisplay called with date:', selectedDate);
     const list = document.getElementById('namedaysList');
-    console.log('Found namedaysList element:', list);
     
     if (!list || !selectedDate) {
-        console.log('Early return - list or selectedDate missing');
         return;
     }
     
     try {
         // Call the global function from namedays.js
         if (typeof window.getNamesForDate === 'function') {
-            console.log('Calling window.getNamesForDate...');
             const names = await window.getNamesForDate(selectedDate);
-            console.log('Received names:', names);
             
             if (names && names.length > 0) {
                 // Get language state from app
                 const isPolish = window.state?.isPolish || false;
                 const label = isPolish ? "Dzisiejsze imieniny:" : "Today's Name Days are:";
                 const html = `<p style="font-weight: bold; margin: 0 0 8px 0; color: #666;">${label}</p><p class="namedays-names">${names.join(', ')}</p>`;
-                console.log('Setting innerHTML to:', html);
                 list.innerHTML = html;
             } else {
                 const noNamesMsg = isPolish ? 'Brak imienin w tym dniu' : 'No name days found for this date';
                 list.innerHTML = `<p class="namedays-placeholder">${noNamesMsg}</p>`;
             }
         } else {
-            console.log('window.getNamesForDate is not a function');
         }
     } catch (error) {
         console.error('Error updating namedays:', error);

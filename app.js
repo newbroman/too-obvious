@@ -1,3 +1,22 @@
+// Development mode flag
+const DEV_MODE = false;
+
+/**
+ * Safe event handler wrapper that catches and logs errors
+ * @param {Function} handler - The event handler function to wrap
+ * @param {string} [errorContext='Event handler'] - Context description for error logging
+ * @returns {Function} Wrapped handler function with error boundary
+ */
+function safeEventHandler(handler, errorContext = 'Event handler') {
+    return function(...args) {
+        try {
+            return handler.apply(this, args);
+        } catch (error) {
+            console.error(`${errorContext} error:`, error);
+            return null;
+        }
+    };
+}
 import { updateHelpPage } from './pages/help.js';
 
 /**
@@ -266,6 +285,7 @@ if (holidayName) {
 }
 // 4. Initialize
 document.addEventListener('DOMContentLoaded', () => {
+    try {
     setupListeners(state, render);
 
     const infoBtn = document.getElementById('navInfo');
@@ -274,13 +294,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const feedbackBtn = document.getElementById('feedbackBtn');
 
     if (infoBtn && aboutModal) {
-        infoBtn.addEventListener('click', () => {
+        infoBtn.addEventListener('click', safeEventHandler(() => {
             aboutModal.style.display = 'block';
-        });
+        }));
 
-        closeBtn?.addEventListener('click', () => {
+        closeBtn?.addEventListener('click', safeEventHandler(() => {
             aboutModal.style.display = 'none';
-        });
+        }));
 
         window.addEventListener('click', (event) => {
             if (event.target === aboutModal) {
@@ -288,10 +308,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        feedbackBtn?.addEventListener('click', () => {
-            // Replace this URL once your Google Form is ready
+        feedbackBtn?.addEventListener('click', safeEventHandler(() => {
             window.open('https://forms.gle/YOUR_FORM_ID', '_blank');
-        });
+        }));
     }
     
     // Use requestAnimationFrame to let CSS load first
@@ -314,8 +333,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         navigator.serviceWorker.register('sw.js')
-            .then(reg => console.log('✅ Registered at:', reg.scope))
-            .catch(err => console.log('❌ Failed:', err));
+    }
+    } catch (error) {
+        console.error('Fatal initialization error:', error);
+        document.body.innerHTML = '<div style="padding: 20px; text-align: center;"><h2>Application Error</h2><p>Failed to initialize. Please refresh the page.</p></div>';
     }
 });
 // Keep these at the very bottom for debugging
