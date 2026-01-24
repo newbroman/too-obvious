@@ -295,6 +295,48 @@ export function renderCulturalHub(state) {
             }
             return '';
         })()}
+        ${(() => {
+            // Check for anniversaries on this date
+            const anniversaries = getAnniversariesForDate(state.selectedDate);
+            
+            if (anniversaries.length > 0) {
+                let annivHtml = `
+                    <div class="anniversaries-section" style="margin: 20px 0; padding: 20px; background: linear-gradient(135deg, #f3e5f5 0%, #f5f5f5 100%); border-left: 4px solid #9c27b0; border-radius: 8px;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                            <span style="font-size: 2rem;">📅</span>
+                            <h2 style="margin: 0; font-size: 1.3rem; color: #7b1fa2;">${state.isPolish ? 'Rocznice Historyczne' : 'Historical Anniversaries'}</h2>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 12px;">`;
+                
+                anniversaries.forEach(anniv => {
+                    const era = historicalData.eras[anniv.era];
+                    const eventName = state.isPolish ? anniv.namePl : anniv.name;
+                    const eventDesc = state.isPolish ? anniv.descriptionPl : anniv.description;
+                    const yearDisplay = anniv.originalYear < 0 
+                        ? (state.isPolish ? `${Math.abs(anniv.originalYear)} p.n.e.` : `${Math.abs(anniv.originalYear)} BC`)
+                        : anniv.originalYear;
+                    
+                    annivHtml += `
+                        <div style="padding: 12px; background: var(--card-bg, white); border-radius: 6px; border-left: 3px solid ${era.color};">
+                            <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px;">
+                                <span style="font-size: 1.2rem;">${era.icon}</span>
+                                <div style="flex: 1;">
+                                    <div style="font-size: 0.85rem; color: ${era.color}; font-weight: 600;">${anniv.yearsAgo} ${state.isPolish ? 'lat temu' : 'years ago'} (${yearDisplay})</div>
+                                    <div style="font-weight: 600; color: var(--text-main); margin-top: 2px;">${eventName}</div>
+                                </div>
+                            </div>
+                            <p style="margin: 0; font-size: 0.95rem; line-height: 1.5; color: var(--text-dim);">${eventDesc}</p>
+                        </div>`;
+                });
+                
+                annivHtml += `
+                        </div>
+                    </div>`;
+                
+                return annivHtml;
+            }
+            return '';
+        })()}
         <div class="season-box" style="margin-bottom: 20px;">
             <span class="season-icon">${getSeasonIcon(monthInfo.season)}</span>
             <strong>${state.isPolish ? 'Pora roku' : 'Season'}:</strong> 
@@ -370,32 +412,6 @@ export function renderCulturalHub(state) {
                 <p class="holiday-desc">${tradition.description}</p>
             </div>`;
         foundHoliday = true;
-    }
-
-    // Check for historical anniversaries on this date
-    const anniversaries = getAnniversariesForDate(state.selectedDate);
-    if (anniversaries.length > 0) {
-        anniversaries.forEach(anniv => {
-            const era = historicalData.eras[anniv.era];
-            const eventName = state.isPolish ? anniv.namePl : anniv.name;
-            const eventDesc = state.isPolish ? anniv.descriptionPl : anniv.description;
-            const yearDisplay = anniv.originalYear < 0 
-                ? (state.isPolish ? `${Math.abs(anniv.originalYear)} p.n.e.` : `${Math.abs(anniv.originalYear)} BC`)
-                : anniv.originalYear;
-            
-            html += `
-                <div class="holiday-entry tradition-item" style="background: linear-gradient(135deg, #9c27b022 0%, #9c27b011 100%); border-left: 4px solid #9c27b0; box-shadow: 0 0 10px rgba(156, 39, 176, 0.2);">
-                    <div class="holiday-type-tag" style="background: #9c27b0; color: white;">${state.isPolish ? 'ROCZNICA HISTORYCZNA' : 'HISTORICAL ANNIVERSARY'}</div>
-                    <div class="holiday-title">
-                        <strong>${era.icon} ${eventName}</strong>
-                        <div style="font-size: 0.85rem; color: #9c27b0; font-weight: 600; margin-top: 4px;">${anniv.yearsAgo} ${state.isPolish ? 'lat temu' : 'years ago'} (${yearDisplay})</div>
-                    </div>
-                    <p class="holiday-desc">${eventDesc}</p>
-                </div>`;
-            foundHoliday = true;
-        });
-    }
-
     }
 
 
