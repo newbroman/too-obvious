@@ -7,7 +7,6 @@ import culturalData from './data/cultural.js';
 import { getRulesHTML } from './pages/grammar.js';
 import { updateNamedaysDisplay } from './components/info-panel.js';
 import historicalData, { getAnniversariesForDate } from './data/historical.js';
-import * as paganTraditions from './data/pagan.js';
 
 export function setupListeners(state, render) {
     // Audio playback state
@@ -138,7 +137,7 @@ if (meetingBtn) {
     
     document.getElementById('navHelp').onclick = () => {
         showSection('help');
-        import('./pages/help.js').then(m => m.updateHelpPage(state.isPolish));
+        import('./help.js').then(m => m.updateHelpPage(state.isPolish));
     };
 
     // Use event delegation for dynamically created navSearch buttons (culture page + help page)

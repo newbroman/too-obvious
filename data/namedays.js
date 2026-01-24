@@ -4,7 +4,7 @@
     async function loadNamedaysData() {
         if (!namedaysData) {
             try {
-                const response = await fetch('./namedays.json');
+                const response = await fetch('./data/namedays.json');
                 namedaysData = await response.json();
                 console.log('Namedays data loaded, sample keys:', Object.keys(namedaysData).slice(0, 5));
             } catch (error) {

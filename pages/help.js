@@ -30,11 +30,19 @@ export function updateHelpPage(isPolish) {
         howToTitle.textContent = isPolish ? "🎯 Jak Korzystać z Aplikacji" : "🎯 How to Use This App";
     }
     
-    // Update Calendar Page section
-    const calTitle = document.querySelector('#helpPage h4:nth-of-type(1)');
+    // Update section headers
+    const calTitle = document.getElementById('helpCalendarTitle');
+    const cultureTitle = document.getElementById('helpCultureTitle');
+    const grammarTitle = document.getElementById('helpGrammarTitle');
     const calList = document.getElementById('helpCalList');
     if (calTitle) {
         calTitle.textContent = isPolish ? "📅 Strona Kalendarza" : "📅 Calendar Page";
+    }
+    if (cultureTitle) {
+        cultureTitle.textContent = isPolish ? "📖 Strona Kultury" : "📖 Culture Page";
+    }
+    if (grammarTitle) {
+        grammarTitle.textContent = isPolish ? "⚖️ Strona Gramatyki" : "⚖️ Grammar Page";
     }
     if (calList) {
         calList.innerHTML = isPolish 

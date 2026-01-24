@@ -26,16 +26,16 @@ export function getRulesHTML(state) {
     let html = `
         <article class="rules-container">
             <header class="rules-header">
-                <h2>🇵🇱 Polish Date Grammar Explained</h2>
-                <p>Master the two key transformations: Cardinal → Ordinal, Nominative → Genitive</p>
+                <h2>${state.isPolish ? "🇵🇱 Gramatyka Dat Po Polsku" : "🇵🇱 Polish Date Grammar Explained"}</h2>
+                <p>${state.isPolish ? "Opanuj dwie kluczowe transformacje: Kardynalne → Porządkowe, Mianownik → Dopełniacz" : "Master the two key transformations: Cardinal → Ordinal, Nominative → Genitive"}</p>
             </header>
             
             <section class="color-legend" style="background: rgba(128,128,128,0.05); padding: 20px; border-radius: 8px; margin-bottom: 30px;">
-                <h3 style="margin-top: 0;">🎨 Color Coding Guide</h3>
-                <p style="margin-bottom: 15px;">Polish date components are color-coded by their grammatical function:</p>
+                <h3 style="margin-top: 0;">${state.isPolish ? "🎨 Przewodnik Kodowania Kolorami" : "🎨 Color Coding Guide"}</h3>
+                <p style="margin-bottom: 15px;">${state.isPolish ? "Polskie komponenty daty są kodowane kolorami według ich funkcji gramatycznej:" : "Polish date components are color-coded by their grammatical function:"}</p>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
                     <div style="padding: 10px; border-left: 4px solid ${COLORS.ordinalNominative}; background: rgba(74, 144, 226, 0.05);">
-                        <strong style="color: ${COLORS.ordinalNominative};">Blue</strong> = Nominative Ordinals (Mianownik Liczebników Porządkowych)<br>
+                        <strong style="color: ${COLORS.ordinalNominative};">${state.isPolish ? "Niebieski" : "Blue"}</strong> = Nominative Ordinals (Mianownik Liczebników Porządkowych)<br>
                         <small style="color: #666;">pierwszy, drugi, trzeci (Today is...)</small>
                     </div>
                     <div style="padding: 10px; border-left: 4px solid ${COLORS.ordinalGenitive}; background: rgba(255, 215, 0, 0.05);">
@@ -43,7 +43,7 @@ export function getRulesHTML(state) {
                         <small style="color: #666;">pierwszego, drugiego, trzeciego (It's on...)</small>
                     </div>
                     <div style="padding: 10px; border-left: 4px solid ${COLORS.genitive}; background: rgba(243, 156, 18, 0.05);">
-                        <strong style="color: ${COLORS.genitive};">Orange</strong> = Genitive Months (Dopełniacz Miesięcy)<br>
+                        <strong style="color: ${COLORS.genitive};">${state.isPolish ? "Pomarańczowy" : "Orange"}</strong> = Genitive Months (Dopełniacz Miesięcy)<br>
                         <small style="color: #666;">stycznia, lutego, marca</small>
                     </div>
                     <div style="padding: 10px; border-left: 4px solid ${COLORS.year}; background: rgba(155, 89, 182, 0.05);">
@@ -51,7 +51,7 @@ export function getRulesHTML(state) {
                         <small style="color: #666;">dwa tysiące dwudziestego szóstego</small>
                     </div>
                     <div style="padding: 10px; border-left: 4px solid ${COLORS.genitiveMark}; background: rgba(231, 76, 60, 0.05);">
-                        <strong style="color: ${COLORS.genitiveMark};">Red</strong> = Genitive Marker (Znacznik Dopełniacza)<br>
+                        <strong style="color: ${COLORS.genitiveMark};">${state.isPolish ? "Czerwony" : "Red"}</strong> = Genitive Marker (Znacznik Dopełniacza)<br>
                         <small style="color: #666;">roku (of the year)</small>
                     </div>
                 </div>
