@@ -64,10 +64,12 @@
     <section id="culturalHub" class="content-page" style="display: none; position: relative;">
         <button id="cultureBackBtn" class="pill-btn back-to-cal" aria-label="Back to calendar">Back</button>
         <h1>Polish Cultural Traditions</h1>
-        <button id="navSearch" class="nav-icon-btn" title="Name Search" aria-label="Search for name days" style="position: absolute; top: 15px; right: 15px; width: 50px; height: 50px; font-size: 1.5rem; padding: 0; background: white; border: 2px solid #333; border-radius: 50%; z-index: 100; display: flex; align-items: center; justify-content: center; cursor: pointer;">🔍</button>
         <div class="content-body">
             <p>In Poland, <strong>Name Days</strong> are often more important than birthdays. Most Polish calendars list the names associated with each day.</p>
-            <h2>Imieniny (Name Days)</h2>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                <h2 style="margin: 0;">Imieniny (Name Days)</h2>
+                <button id="navSearch" class="nav-icon-btn" title="Name Search" aria-label="Search for name days" style="width: 40px; height: 40px; font-size: 1.3rem; padding: 0; background: white; border: 2px solid #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0;">🔍</button>
+            </div>
             
             <div id="namedaysSection" class="namedays-display">
                 <h3>Names for Selected Date</h3>
@@ -80,7 +82,7 @@
         </div>
     </section>
 
-    <section id="rulesPage" class="content-page" style="display: none;">
+    <section id="rulesPage" class="content-page" style="display: none; position: relative;">
         <button id="rulesBackBtn" aria-label="Back to calendar" class="pill-btn back-to-cal">Back</button>
         <h1>Grammar Rules</h1>
         <div class="content-body">
@@ -94,7 +96,7 @@
 </section>
 
 <!-- Name Search Page -->
-<section id="nameSearchPage" style="display: none;">
+<section id="nameSearchPage" style="display: none; position: relative;">
     <button id="helpBackBtn" aria-label="Back to calendar" class="pill-btn back-to-cal">Back</button>
     <div class="content-body">
         <h2>🔍 Name Day Search</h2>
@@ -136,7 +138,7 @@
     <script src="data/namedays.js"></script>
     <script src="data/pagan.js"></script>
     <script type="module" src="app.js"></script>
-<section id="helpPage" class="content-page" style="display: none;">
+<section id="helpPage" class="content-page" style="display: none; position: relative;">
     <button id="searchBackBtn" aria-label="Back to calendar" class="pill-btn back-to-cal">Back</button>
     <h1 id="helpTitle">Help</h1>
     <div class="content-body">
