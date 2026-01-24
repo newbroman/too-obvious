@@ -1748,7 +1748,7 @@ body {
 
 @media (prefers-color-scheme: dark) {
     .has-pagan {
-        background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+        background-color: rgba(76, 175, 80, 0.08);
         border-top-color: #4caf50;
     }
 }
