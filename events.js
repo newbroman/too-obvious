@@ -396,7 +396,6 @@ export function renderCulturalHub(state) {
         });
     }
 
-    }
 
 
     if (!foundHoliday) {
