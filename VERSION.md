@@ -1,11 +1,25 @@
 # Version History
 
-## Current Version: 1.4.01
+## Current Version: 1.4.02
 
 ### Version Numbering System
 - **Major** (1.x.x): Major feature additions or breaking changes
 - **Minor** (x.4.x): New features, reorganizations, significant improvements
-- **Patch** (x.x.01): Bug fixes, minor tweaks, import path fixes
+- **Patch** (x.x.02): Bug fixes, minor tweaks, import path fixes
+
+---
+
+## v1.4.02 (2026-01-24)
+**Bug Fix Release - Missing Imports**
+
+### Bug Fixes:
+- ✅ Added missing pagan traditions import to events.js
+- ✅ Fixed help page dynamic import path: `./help.js` → `./pages/help.js`
+- ✅ Service worker cache: `pl-date-v1402`
+
+### Issues Resolved:
+- Pagan traditions now display on calendar
+- Help page language toggle now works correctly
 
 ---
 
@@ -100,8 +114,8 @@
 
 ## Next Version Targets
 
-### v1.4.02 (Patch)
-- Any bug fixes found after deployment
+### v1.4.03+ (Patch)
+- Any additional bug fixes
 - Minor adjustments
 
 ### v1.5.00 (Minor)
