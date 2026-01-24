@@ -566,21 +566,20 @@ body {
     border-top-color: #dc3545 !important;
     border-bottom-color: #dc3545 !important;
     background-color: rgba(220, 53, 69, 0.08) !important;
-    color: #c0392b;
+    
 }
 
 /* Priority 2: Tradition (Blue Top Border) */
 .calendar-day.is-tradition {
     border-top-color: #2196f3 !important;
     background-color: rgba(33, 150, 243, 0.08) !important;
-    color: #1565c0;
 }
 
 /* Historical Event dates */
 .calendar-day.has-historical-event {
     border-top-color: #ff9800 !important;
     background-color: rgba(255, 152, 0, 0.08) !important;
-    color: #e65100;
+    
     position: relative;
 }
 
@@ -600,8 +599,8 @@ body {
 /* Selected state should still pop */
 .calendar-day.selected {
     border-top-color: white !important;
-    background: var(--accent-color) !important;
     color: white !important;
+    background: var(--accent-color) !important;
 }
 .modal-overlay {
     display: none; 
@@ -1371,7 +1370,7 @@ button.back-to-cal,
 .content-page .back-to-cal,
 #culturalHub .back-to-cal,
 #rulesPage .back-to-cal {
-    position: sticky !important;  /* STICKY - floats within content box */
+    position: fixed !important;  /* STICKY - floats within content box */
     top: 20px !important;
     right: 20px !important;
     left: auto !important;
@@ -1695,7 +1694,7 @@ body {
 .calendar-day.has-anniversary {
     border-top-color: #9c27b0 !important;
     background-color: rgba(156, 39, 176, 0.08) !important;
-    color: #6a1b9a;
+    
 }
 
 .calendar-day.has-anniversary:hover {
