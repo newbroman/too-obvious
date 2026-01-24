@@ -311,7 +311,6 @@ document.addEventListener('DOMContentLoaded', () => {
         feedbackBtn?.addEventListener('click', safeEventHandler(() => {
             window.open('https://forms.gle/YOUR_FORM_ID', '_blank');
         }));
-        });
     }
     
     // Use requestAnimationFrame to let CSS load first
