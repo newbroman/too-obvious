@@ -107,12 +107,12 @@
     }
     
     .phrase-phonetic {
-        font-size: 0.8rem !important;
+        font-size: 0.85rem !important;
         margin-bottom: 3px;
     }
     
     .phrase-en {
-        font-size: 0.75rem !important;
+        font-size: 0.7rem !important;
     }
     
     /* Compact buttons */
@@ -248,7 +248,7 @@
     }
     
     .phrase-en {
-        font-size: 0.7rem !important;
+        font-size: 0.65rem !important;
     }
     
     .pill-btn {
@@ -436,8 +436,8 @@ body {
 
 .phrase-display { text-align: center; width: 100%; max-width: 400px; margin-bottom: 15px; }
 .phrase-pl { font-size: 1.2rem; font-weight: 800; margin-bottom: 4px; }
-.phrase-phonetic { font-size: 0.95rem; color: var(--tan); font-style: italic; display: block; margin-bottom: 4px; }
-.phrase-en { font-size: 0.85rem; color: var(--text-dim); }
+.phrase-phonetic { font-size: 1.0rem; color: var(--tan); font-style: italic; display: block; margin-bottom: 4px; }
+.phrase-en { font-size: 0.8rem; color: var(--text-dim); }
 
 .footer-controls { display: flex; gap: 10px; justify-content: center; }
 
@@ -1563,15 +1563,15 @@ body {
 
 /* Increase calendar phrase font sizes to 150% */
 #plPhrase, .phrase-pl {
-    font-size: 1.1em !important; /* 150% of base */
+    font-size: 1.2em !important; /* 150% of base */
 }
 
 #phoneticPhrase, .phrase-phonetic {
-    font-size: 1.1em !important; /* 150% of base */
+    font-size: 1.0em !important; /* 150% of base */
 }
 
 #enPhrase, .phrase-en {
-    font-size: 1.1em !important; /* 150% of base */
+    font-size: 0.85em !important; /* 150% of base */
 }
 
 /* Also increase the phrase display container if it exists */

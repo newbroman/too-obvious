@@ -1,5 +1,5 @@
-const CACHE_NAME = 'pl-date-v1415';
-const VERSION = '1.4.15'; // Major.Minor.Patch
+const CACHE_NAME = 'pl-date-v1416';
+const VERSION = '1.4.16'; // Major.Minor.Patch
 const ASSETS = [
     '/',
     '/index.html',
