@@ -1,0 +1,17 @@
+/* CSS Custom Properties */
+:root {
+    --accent-color: #e6192e; 
+    --bg-dark: #f8f9fa;
+    --panel-bg: #ffffff;
+    --grid-item-bg: #ffffff;
+    --text-main: #1a1a1a;
+    --text-dim: #666666;
+    --gold: #b8860b;
+    --tan: #8b4513;
+    --seasonal-bg: rgba(230, 25, 46, 0.05);
+    --border-color: #dee2e6;
+    --formal-blue: #00d4ff;
+    --card-bg: #ffffff;
+    --subtle-bg: #f8f9fa;
+    --highlight-bg: #fffbf0;
+}

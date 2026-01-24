@@ -1,0 +1,95 @@
+/* Info Panel - Date Display */
+
+.info-panel {
+        padding: 10px 12px 12px !important;
+        min-height: auto !important;
+    }
+
+.info-panel {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: var(--panel-bg);
+    padding: 15px 15px 25px;
+    border-top: 4px solid var(--border-color);
+    z-index: 9999 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+}
+
+.info-panel.formal-theme { 
+    border-top: 3px solid #ffd700; /* Gold for Event Mode */
+    background: linear-gradient(to bottom, var(--panel-bg), rgba(255, 215, 0, 0.05)); 
+}
+
+.info-panel.informal-theme { 
+    border-top: 3px solid #4a90e2; /* Blue for Naming Mode */
+    background: linear-gradient(to bottom, var(--panel-bg), rgba(74, 144, 226, 0.05)); 
+}
+
+.phrase-display {
+        margin-bottom: 8px;
+    }
+
+.phrase-pl {
+        font-size: 1rem !important;
+        margin-bottom: 3px;
+        line-height: 1.2;
+    }
+
+.phrase-phonetic {
+        font-size: 0.8rem !important;
+        margin-bottom: 3px;
+    }
+
+.phrase-en {
+        font-size: 0.75rem !important;
+    }
+
+.phrase-pl {
+        font-size: 0.9rem !important;
+    }
+
+.phrase-phonetic {
+        font-size: 0.75rem !important;
+    }
+
+.phrase-en {
+        font-size: 0.7rem !important;
+    }
+
+.phrase-display { text-align: center; width: 100%; max-width: 400px; margin-bottom: 15px; }
+
+.phrase-pl { font-size: 1.2rem; font-weight: 800; margin-bottom: 4px; }
+
+.phrase-phonetic { font-size: 0.95rem; color: var(--tan); font-style: italic; display: block; margin-bottom: 4px; }
+
+.phrase-en { font-size: 0.85rem; color: var(--text-dim); }
+
+.phrase-pl {
+    font-size: 1.1em !important; /* 150% of base */
+}
+
+.phrase-phonetic {
+    font-size: 1.1em !important; /* 150% of base */
+}
+
+.phrase-en {
+    font-size: 1.1em !important; /* 150% of base */
+}
+
+.phrase-display {
+    font-size: 1.1em !important;
+}
+
+.footer-controls {
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+.footer-controls { display: flex; gap: 10px; justify-content: center; }
+

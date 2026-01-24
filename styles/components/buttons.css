@@ -1,0 +1,440 @@
+/* Button Styles */
+
+.pill-btn {
+        padding: 6px 16px;
+        font-size: 0.85rem;
+    }
+
+.pill-btn.secondary {
+        font-size: 0.6rem !important;
+        padding: 3px 6px !important;
+    }
+
+.pill-btn-sm {
+        font-size: 0.7rem !important;
+        padding: 4px 6px !important;
+        min-width: 32px;
+    }
+
+.pill-btn {
+        padding: 5px 12px;
+        font-size: 0.8rem;
+    }
+
+.pill-btn {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 8px 24px;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.pill-btn-feedback {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    width: 100%;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, background 0.2s;
+}
+
+.pill-btn-feedback:active {
+    transform: scale(0.96);
+}
+
+.pill-btn.back-to-cal {
+        background-color: rgba(74, 144, 226, 0.3) !important;
+        color: #4a90e2 !important;
+        border: 1px solid rgba(74, 144, 226, 0.5) !important;
+    }
+
+.pill-btn.back-to-cal:hover {
+        background-color: rgba(74, 144, 226, 0.5) !important;
+    }
+
+.pill-btn.back-to-cal,
+.content-page .back-to-cal,
+#culturalHub .back-to-cal,
+#rulesPage .back-to-cal {
+    position: sticky !important;  /* STICKY - floats within content box */
+    top: 20px !important;
+    right: 20px !important;
+    left: auto !important;
+    bottom: auto !important;
+    float: right !important;  /* Float to right side */
+    margin-left: auto !important;
+    z-index: 100 !important;
+    
+    /* Size */
+    padding: 8px 16px !important;
+    width: auto !important;
+    height: auto !important;
+    min-width: auto !important;
+    border-radius: 20px !important;
+    
+    /* Typography */
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    
+    /* Colors - RED background */
+    background-color: #E6192E !important;
+    color: white !important;
+    border: 2px solid #C0162A !important;
+    
+    /* Effects */
+    box-shadow: 0 2px 8px rgba(230, 25, 46, 0.3) !important;
+    backdrop-filter: blur(10px) !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    transform: none !important;
+    display: inline-block !important;
+}
+
+.pill-btn.back-to-cal::before {
+    content: none !important;
+    display: none !important;
+}
+
+.pill-btn.back-to-cal:hover {
+    background-color: #C0162A !important;
+    color: white !important;
+    border-color: #A01220 !important;
+    box-shadow: 0 4px 12px rgba(230, 25, 46, 0.5) !important;
+    transform: scale(1.05) !important;
+}
+
+.pill-btn.back-to-cal {
+        background-color: #E6192E !important;
+        color: white !important;
+        border-color: #C0162A !important;
+    }
+
+.pill-btn.back-to-cal:hover {
+        background-color: #C0162A !important;
+        color: white !important;
+        border-color: #A01220 !important;
+    }
+
+.pill-btn.back-to-cal {
+        padding: 6px 12px !important;
+        font-size: 0.85rem !important;
+        top: 15px !important;
+    }
+
+.pill-btn-feedback {
+    display: block !important;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.pill-btn-feedback {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    margin-top: 15px !important;
+}
+
+.nav-btn-arrow {
+        height: 36px;
+        width: 36px;
+        font-size: 1.2rem;
+    }
+
+.nav-btn-arrow {
+        height: 32px;
+        width: 32px;
+        font-size: 1rem;
+    }
+
+.nav-btn-arrow {
+    background-color: transparent; 
+    border: 1px solid var(--border-color, #ccc); 
+    height: 42px; 
+    width: 42px;
+    color: currentColor; 
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.back-to-cal {
+    display: inline-block !important;
+    position: absolute !important;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: #dc3545 !important;  /* Red background */
+    color: white !important;
+    border: 2px solid #c82333 !important;  /* Darker red border */
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+    padding: 10px 20px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    transition: all 0.2s ease;
+    cursor: pointer !important;
+    border-radius: 30px !important;
+    white-space: nowrap;
+    width: auto !important;
+    height: auto !important;
+    min-width: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.back-to-cal:hover {
+    background: #c82333 !important;  /* Darker red on hover */
+    color: white !important;
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(220, 53, 69, 0.4);
+}
+
+.back-to-cal:active {
+    transform: scale(0.98);
+}
+
+.back-to-cal {
+        top: 10px;
+        right: 10px;
+        padding: 8px 16px !important;
+        font-size: 14px !important;
+    }
+
+.back-to-cal,
+#culturalHub .back-to-cal,
+button.back-to-cal {
+    display: block !important;
+    position: absolute !important;
+    top: 20px !important;
+    right: 20px !important;
+    z-index: 9999 !important;
+    background: #dc3545 !important;
+    color: white !important;
+    border: 2px solid #c82333 !important;
+    padding: 10px 20px !important;
+    font-size: 16px !important;
+    border-radius: 30px !important;
+    cursor: pointer !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+.back-to-cal,
+button.back-to-cal,
+.pill-btn.back-to-cal,
+.content-page .back-to-cal,
+#culturalHub .back-to-cal,
+#rulesPage .back-to-cal {
+    position: sticky !important;  /* STICKY - floats within content box */
+    top: 20px !important;
+    right: 20px !important;
+    left: auto !important;
+    bottom: auto !important;
+    float: right !important;  /* Float to right side */
+    margin-left: auto !important;
+    z-index: 100 !important;
+    
+    /* Size */
+    padding: 8px 16px !important;
+    width: auto !important;
+    height: auto !important;
+    min-width: auto !important;
+    border-radius: 20px !important;
+    
+    /* Typography */
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    
+    /* Colors - RED background */
+    background-color: #E6192E !important;
+    color: white !important;
+    border: 2px solid #C0162A !important;
+    
+    /* Effects */
+    box-shadow: 0 2px 8px rgba(230, 25, 46, 0.3) !important;
+    backdrop-filter: blur(10px) !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    transform: none !important;
+    display: inline-block !important;
+}
+
+.back-to-cal::before,
+button.back-to-cal::before,
+.pill-btn.back-to-cal::before {
+    content: none !important;
+    display: none !important;
+}
+
+.back-to-cal:hover,
+button.back-to-cal:hover,
+.pill-btn.back-to-cal:hover {
+    background-color: #C0162A !important;
+    color: white !important;
+    border-color: #A01220 !important;
+    box-shadow: 0 4px 12px rgba(230, 25, 46, 0.5) !important;
+    transform: scale(1.05) !important;
+}
+
+.back-to-cal,
+    button.back-to-cal,
+    .pill-btn.back-to-cal {
+        background-color: #E6192E !important;
+        color: white !important;
+        border-color: #C0162A !important;
+    }
+
+.back-to-cal:hover,
+    button.back-to-cal:hover,
+    .pill-btn.back-to-cal:hover {
+        background-color: #C0162A !important;
+        color: white !important;
+        border-color: #A01220 !important;
+    }
+
+.back-to-cal,
+    button.back-to-cal,
+    .pill-btn.back-to-cal {
+        padding: 6px 12px !important;
+        font-size: 0.85rem !important;
+        top: 15px !important;
+    }
+
+buttons */
+    .footer-controls {
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+button more compact on mobile */
+    .mode-btn-written,
+    .mode-btn-spoken {
+        font-size: 0.75rem !important;
+        padding: 4px 8px !important;
+        white-space: nowrap;
+    }
+
+button - always red regardless of season */
+#playBtn {
+    background: #dc3545 !important;
+}
+
+button styling - forces visibility */
+.content-page .back-to-cal,
+#culturalHub .back-to-cal,
+button.back-to-cal {
+    display: block !important;
+    position: absolute !important;
+    top: 20px !important;
+    right: 20px !important;
+    z-index: 9999 !important;
+    background: #dc3545 !important;
+    color: white !important;
+    border: 2px solid #c82333 !important;
+    padding: 10px 20px !important;
+    font-size: 16px !important;
+    border-radius: 30px !important;
+    cursor: pointer !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+button */
+    .pill-btn.back-to-cal {
+        background-color: rgba(74, 144, 226, 0.3) !important;
+        color: #4a90e2 !important;
+        border: 1px solid rgba(74, 144, 226, 0.5) !important;
+    }
+
+button is visible on mobile in Cultural page */
+.namedays-display {
+    display: block !important;
+}
+
+button more visible on mobile */
+@media (max-width: 768px) {
+    #namedaysSection button#navSearch {
+        font-size: 1.3rem !important;
+        padding: 6px !important;
+    }
+
+button#navSearch {
+        font-size: 1.2rem !important;
+        padding: 4px !important;
+    }
+
+button to be visible on Cultural page */
+#culturalHub #navSearch {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+button is visible on desktop */
+#feedbackBtn, .pill-btn-feedback {
+    display: block !important;
+    width: 100%;
+    margin-top: 15px;
+}
+
+button */
+.modal-overlay .close-btn {
+    display: none !important;
+}
+
+button */
+    max-height: 80vh !important;
+    overflow-y: auto !important;
+    box-sizing: border-box !important;
+}
+
+/* Make feedback button visible on desktop - force display */
+.modal-overlay #feedbackBtn,
+.modal-overlay .pill-btn-feedback {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    margin-top: 15px !important;
+}
+
+button space */
+    max-height: none !important;
+    overflow-y: visible !important;
+}
+
+/* Fix horizontal scroll on rules page */
+#rulesPage {
+    overflow-x: hidden !important;
+}
+
+.nav-icon-btn {
+        font-size: 1rem;
+        padding: 3px 4px;
+    }
+
+.nav-icon-btn { background: none; border: none; font-size: 1.1rem; cursor: pointer; transition: transform 0.2s; padding: 4px 6px; }
+
+.nav-icon-btn:active { transform: scale(0.9); }
+

@@ -1,0 +1,43 @@
+/* Navigation Styles */
+
+.brand-header {
+        padding: 0.5rem 0.3rem;
+    }
+
+.brand-header h1 {
+        font-size: 1.2rem;
+        line-height: 1.1;
+    }
+
+.brand-header h1 {
+        font-size: 1.1rem;
+    }
+
+.brand-header {
+    text-align: center;
+    padding: 0.8rem 0.5rem; 
+    background: linear-gradient(to bottom, #ffffff 50%, #dc143c 50%);
+    border-bottom: 2px solid #a0102b;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.brand-header h1 { font-size: 1.5rem; font-weight: 900; color: #000; text-transform: uppercase; line-height: 1.2; }
+
+.utility-controls {
+        min-width: min-content;
+        justify-content: flex-start;
+    }
+
+.utility-controls {
+        gap: 4px;
+        padding: 0 4px;
+    }
+
+.utility-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    flex-wrap: wrap;
+}
+

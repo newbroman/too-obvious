@@ -1,0 +1,1737 @@
+/* Dark Mode Overrides */
+
+@media (max-width: 768px) {
+    /* Reduce header size */
+    .brand-header {
+        padding: 0.5rem 0.3rem;
+    }
+    
+    .brand-header h1 {
+        font-size: 1.2rem;
+        line-height: 1.1;
+    }
+    
+    /* Compact navigation */
+    .main-nav-container {
+        padding: 6px 0;
+    }
+    
+    .nav-icon-btn {
+        font-size: 1rem;
+        padding: 3px 4px;
+    }
+    
+
+    /* Ensure navigation doesn't overflow */
+    .main-nav-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .utility-controls {
+        min-width: min-content;
+        justify-content: flex-start;
+    }
+    /* Reduce calendar container spacing */
+    .calendar-container {
+        max-width: 100%;
+        padding: 8px;
+        margin-bottom: 8px;
+    }
+    
+    /* Smaller weekday labels */
+    .weekdays {
+        font-size: 0.7rem;
+        margin-bottom: 6px;
+        gap: 3px;
+    }
+    
+    /* Tighter calendar grid */
+    #calendarGrid {
+        gap: 3px;
+    }
+    
+    /* Reduce navigation controls */
+    .nav-controls-row {
+        margin: 0 auto 10px !important;
+        gap: 6px;
+    }
+    
+    .nav-btn-arrow {
+        height: 36px;
+        width: 36px;
+        font-size: 1.2rem;
+    }
+    
+    .month-display {
+        font-size: 1rem;
+        padding: 0 8px;
+    }
+    
+    /* Compact info panel - KEY CHANGES */
+    .info-panel {
+        padding: 10px 12px 12px !important;
+        min-height: auto !important;
+    }
+    
+    .phrase-display {
+        margin-bottom: 8px;
+    }
+    
+    /* Reduce phrase sizes significantly */
+    .phrase-pl {
+        font-size: 1rem !important;
+        margin-bottom: 3px;
+        line-height: 1.2;
+    }
+    
+    .phrase-phonetic {
+        font-size: 0.8rem !important;
+        margin-bottom: 3px;
+    }
+    
+    .phrase-en {
+        font-size: 0.75rem !important;
+    }
+    
+    /* Compact buttons */
+    .footer-controls {
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+    
+    .pill-btn {
+        padding: 6px 16px;
+        font-size: 0.85rem;
+    }
+    
+    .pill-btn.secondary {
+        font-size: 0.6rem !important;
+        padding: 3px 6px !important;
+    }
+    
+    /* Utility controls - tighter spacing */
+    .utility-controls {
+        gap: 4px;
+        padding: 0 4px;
+    }
+
+    /* Make mode button more compact on mobile */
+    .mode-btn-written,
+    .mode-btn-spoken {
+        font-size: 0.75rem !important;
+        padding: 4px 8px !important;
+        white-space: nowrap;
+    }
+    
+    .pill-btn-sm {
+        font-size: 0.7rem !important;
+        padding: 4px 6px !important;
+        min-width: 32px;
+    }
+    
+    /* Hide divider on very small screens */
+    .divider {
+        display: none;
+    }
+
+    
+    /* Reduce holiday display */
+    .holiday-name {
+        font-size: 0.75rem;
+        padding: 6px 8px;
+        margin-bottom: 6px;
+    }
+    
+    /* Content pages */
+    .content-page {
+        padding: 20px;
+        margin: 15px auto 80px;
+    }
+    
+    .content-page h1 {
+        font-size: 1.2rem;
+    }
+    
+    .content-page h2 {
+        font-size: 1rem;
+        margin-top: 15px;
+    }
+    
+    .content-page p {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+    
+    /* Rules page specific */
+    .rule-block {
+        padding: 12px;
+        margin-bottom: 15px;
+    }
+    
+    .rule-block h4 {
+        font-size: 1rem;
+    }
+    
+    .rule-block p {
+        font-size: 0.85rem;
+    }
+    
+    .section-divider {
+        font-size: 0.9rem;
+        margin: 20px 0 12px 0;
+    }
+    
+    /* Color legend */
+    .color-legend {
+        padding: 15px !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .color-legend h3 {
+        font-size: 1rem;
+    }
+    
+    .color-legend p {
+        font-size: 0.85rem;
+    }
+    
+    .color-legend small {
+        font-size: 0.75rem;
+    }
+    
+    /* Search page */
+    #nameSearchInput {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+    
+    #nameSearchBtn {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+    }
+}
+
+/* Extra small devices (phones in portrait, less than 375px) */
+@media (max-width: 374px) {
+    .brand-header h1 {
+        font-size: 1.1rem;
+    }
+    
+    .phrase-pl {
+        font-size: 0.9rem !important;
+    }
+    
+    .phrase-phonetic {
+        font-size: 0.75rem !important;
+    }
+    
+    .phrase-en {
+        font-size: 0.7rem !important;
+    }
+    
+    .pill-btn {
+        padding: 5px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .nav-btn-arrow {
+        height: 32px;
+        width: 32px;
+        font-size: 1rem;
+    }
+    
+    .month-display {
+        font-size: 0.9rem;
+    }
+}
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-dark: #121212;
+        --panel-bg: #1e1e1e;
+        --grid-item-bg: #252525;
+        --text-main: #ffffff;
+        --text-dim: #bbbbbb;
+        --gold: #ffd700;
+        --tan: #D2B48C;
+        --seasonal-bg: rgba(230, 25, 46, 0.15);
+        --border-color: #333333;
+        --card-bg: #1e1e1e;
+        --subtle-bg: #252525;
+        --highlight-bg: #2a2a1a;
+    }
+}
+
+/* Seasonal Body Overrides */
+body.spring { --accent-color: #4caf50; }
+body.summer { --accent-color: #ffc107; }
+body.autumn { --accent-color: #ff5722; }
+body.winter { --accent-color: #e6192e; }
+
+/* --- 2. Global Reset & Layout --- */
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-dark);
+    background-image: linear-gradient(180deg, var(--seasonal-bg) 0%, var(--bg-dark) 600px);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- 3. Navigation & Header --- */
+.brand-header {
+    text-align: center;
+    padding: 0.8rem 0.5rem; 
+    background: linear-gradient(to bottom, #ffffff 50%, #dc143c 50%);
+    border-bottom: 2px solid #a0102b;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.brand-header h1 { font-size: 1.5rem; font-weight: 900; color: #000; text-transform: uppercase; line-height: 1.2; }
+
+.main-nav-container { padding: 8px 0; border-bottom: 1px solid var(--border-color); }
+
+.utility-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    flex-wrap: wrap;
+}
+
+.nav-icon-btn { background: none; border: none; font-size: 1.1rem; cursor: pointer; transition: transform 0.2s; padding: 4px 6px; }
+.nav-icon-btn:active { transform: scale(0.9); }
+.divider { width: 1px; height: 18px; background: var(--border-color); }
+
+/* --- 4. Calendar Components --- */
+.calendar-container {
+    width: 95%;
+    max-width: 400px;
+    margin: 0 auto;
+    background: var(--panel-bg);
+    border-radius: 12px;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.weekdays {
+    display: grid !important;
+    grid-template-columns: repeat(7, 1fr) !important;
+    gap: 5px;
+    margin-bottom: 10px;
+    padding: 0 5px;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--text-dim);
+}
+
+#calendarGrid { display: grid !important; grid-template-columns: repeat(7, 1fr); gap: 5px; }
+
+.calendar-day {
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.calendar-day.holiday { border: 2px solid var(--accent-color) !important; color: var(--accent-color) !important; font-weight: 900 !important; }
+.calendar-day.today-highlight { background-color: var(--gold) !important; color: #000 !important; border: none !important; font-weight: 800; box-shadow: 0 0 8px rgba(184, 134, 11, 0.5); }
+.calendar-day.selected { background: var(--accent-color) !important; color: white !important; border-color: var(--accent-color) !important; }
+
+/* Navigation Row & Arrows */
+.nav-controls-row {
+    display: flex !important;
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 0 auto 15px !important;
+    justify-content: center !important;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-btn-arrow {
+    background-color: transparent; 
+    border: 1px solid var(--border-color, #ccc); 
+    height: 42px; 
+    width: 42px;
+    color: currentColor; 
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.roller-select, #yearInput {
+    height: 42px;
+    background-color: transparent;
+    border: 1px solid var(--border-color, #ccc);
+    color: currentColor;
+    border-radius: 6px;
+    padding: 0 10px;
+    font-weight: bold;
+}
+
+/* --- 5. Info Panel (Footer) --- */
+.info-panel {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: var(--panel-bg);
+    padding: 15px 15px 25px;
+    border-top: 4px solid var(--border-color);
+    z-index: 9999 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+}
+
+.info-panel.formal-theme { 
+    border-top: 3px solid #ffd700; /* Gold for Event Mode */
+    background: linear-gradient(to bottom, var(--panel-bg), rgba(255, 215, 0, 0.05)); 
+}
+
+.info-panel.informal-theme { 
+    border-top: 3px solid #4a90e2; /* Blue for Naming Mode */
+    background: linear-gradient(to bottom, var(--panel-bg), rgba(74, 144, 226, 0.05)); 
+}
+
+.phrase-display { text-align: center; width: 100%; max-width: 400px; margin-bottom: 15px; }
+.phrase-pl { font-size: 1.2rem; font-weight: 800; margin-bottom: 4px; }
+.phrase-phonetic { font-size: 0.95rem; color: var(--tan); font-style: italic; display: block; margin-bottom: 4px; }
+.phrase-en { font-size: 0.85rem; color: var(--text-dim); }
+
+.footer-controls { display: flex; gap: 10px; justify-content: center; }
+
+/* --- 6. Buttons & Toggles --- */
+.pill-btn {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 8px 24px;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Override for audio/listen button - always red regardless of season */
+#playBtn {
+    background: #dc3545 !important;
+}
+
+#playBtn:hover {
+    background: #c82333 !important;
+}
+
+#meetingToggle, #repeatYearBtn {
+    font-size: 0.65rem !important; 
+    padding: 4px 8px !important;
+    height: 26px;
+    min-width: 90px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    gap: 8px;
+}
+
+/* New Logic: Event (🎉) and Naming (📅) classes */
+.mode-btn-event { background-color: #ffd700 !important; color: #333 !important; border: 2px solid #daa520 !important; }
+
+.mode-btn-naming { background-color: #4a90e2 !important; color: white !important; border: 2px solid #357abd !important; }
+
+
+/* --- 7. Content Page Styling --- */
+.content-page {
+    position: relative;
+    max-width: 700px;
+    margin: 20px auto 100px;
+    padding: 30px;
+    background: var(--panel-bg);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    line-height: 1.8;
+}
+
+.content-page h1 { color: var(--accent-color); margin-bottom: 20px; border-bottom: 3px solid var(--gold); display: inline-block; padding-bottom: 5px; }
+.content-page h2 { margin-top: 25px; color: var(--text-main); font-size: 1.2rem; }
+.content-page p { margin-bottom: 15px; color: var(--text-dim); }
+.content-page strong { color: var(--gold); }
+.content-page em { background: rgba(184, 134, 11, 0.1); padding: 2px 5px; border-radius: 4px; font-style: normal; color: var(--tan); }
+
+/* Section visibility shield */
+#calendarSection, #culturalHub, #rulesPage {
+    width: 100% !important;
+    padding-bottom: 220px !important;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- 8. Holiday & Rule Details --- */
+.holiday-list { display: flex; flex-direction: column; gap: 15px; }
+.holiday-entry { background: rgba(0, 0, 0, 0.03); padding: 12px 16px; border-radius: 8px; border-left: 4px solid var(--accent-color); }
+.holiday-title { font-size: 1.05rem; color: var(--text-main); }
+.holiday-desc { font-size: 0.9rem; color: var(--text-dim); font-style: italic; }
+
+.season-box { margin-top: 10px; display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; background: var(--seasonal-bg); border-radius: 20px; border: 1px solid var(--accent-color); font-size: 0.95rem; }
+.season-text { font-weight: 700; color: var(--accent-color); }
+
+.highlight { font-weight: bold; padding: 2px 6px; border-radius: 4px; background: rgba(255, 255, 255, 0.2); border-bottom: 2px solid currentColor; }
+
+.rule-block.written-mode { border-left: 5px solid #ffd700; background: rgba(255, 215, 0, 0.08); padding: 15px; margin-bottom: 20px; border-radius: 0 8px 8px 0; }
+.rule-block.spoken-mode { border-left: 5px solid #4a90e2; background: rgba(74, 144, 226, 0.08); padding: 15px; margin-bottom: 20px; border-radius: 0 8px 8px 0; }
+
+.section-divider { color: #ffd700; border-bottom: 2px solid rgba(255, 215, 0, 0.3); padding-bottom: 5px; margin: 25px 0 15px 0; text-transform: uppercase; font-size: 1rem; }
+
+.holiday-block {
+    padding: 10px;
+    font-size: 0.9em;
+    border-left: 4px solid #e74c3c; /* A red accent for holidays */
+}
+
+/* Official Holiday Style */
+.state-holiday {
+    border-left: 4px solid #e74c3c; /* Red */
+    background: rgba(231, 76, 60, 0.05);
+}
+
+/* Tradition Style */
+.tradition-item {
+    border-left: 4px solid #2196f3; /* Blue */
+    background: rgba(33, 150, 243, 0.05);
+}
+
+.holiday-type-tag {
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    opacity: 0.7;
+}
+/* Base cell style (ensure it has a transparent border to prevent 'jumping') */
+.calendar-day {
+    box-sizing: border-box;
+    border-top: 5px solid transparent; /* Placeholder to prevent jumping */
+    border-bottom: 5px solid transparent; /* Placeholder for bottom bar */
+    transition: all 0.2s ease;
+}
+
+/* Priority 1: State Holiday (Red Top Border) */
+.calendar-day.is-holiday {
+    border-top-color: #dc3545 !important;
+    border-bottom-color: #dc3545 !important;
+    background-color: rgba(220, 53, 69, 0.08) !important;
+    color: #c0392b;
+}
+
+/* Priority 2: Tradition (Blue Top Border) */
+.calendar-day.is-tradition {
+    border-top-color: #2196f3 !important;
+    background-color: rgba(33, 150, 243, 0.08) !important;
+    color: #1565c0;
+}
+
+/* Historical Event dates */
+.calendar-day.has-historical-event {
+    border-top-color: #ff9800 !important;
+    background-color: rgba(255, 152, 0, 0.08) !important;
+    color: #e65100;
+    position: relative;
+}
+
+.calendar-day.has-historical-event::after {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 0.7rem;
+    opacity: 0.7;
+}
+
+.calendar-day.has-historical-event:hover {
+    background-color: rgba(255, 152, 0, 0.15) !important;
+    transform: scale(1.05);
+}
+
+/* Selected state should still pop */
+.calendar-day.selected {
+    border-top-color: white !important;
+    background: var(--accent-color) !important;
+    color: white !important;
+}
+.modal-overlay {
+    display: none; 
+    position: fixed;
+    z-index: 10000; /* Higher than your info-panel z-index (9999) */
+    left: 0; 
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    background-color: var(--panel-bg);
+    color: var(--text-main);
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-dim);
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: var(--accent-color);
+}
+
+.about-body h2 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+.about-body p {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.about-body ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.about-body li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pill-btn-feedback {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    width: 100%;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, background 0.2s;
+}
+
+.pill-btn-feedback:active {
+    transform: scale(0.96);
+}
+
+/* Dark Mode adjustment for better contrast */
+@media (prefers-color-scheme: dark) {
+    .modal-content {
+        border-color: var(--border-color);
+        box-shadow: 0 0 20px rgba(230, 25, 46, 0.2);
+    }
+}
+
+/* Namedays Display Styles */
+.namedays-display {
+    margin: 20px 0;
+    padding: 15px;
+    background: var(--card-bg, #f8f9fa);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-color, #4a90e2);
+}
+
+.namedays-display h3 {
+    margin: 0 0 10px 0;
+    color: var(--text-primary, #333);
+    font-size: 1.2rem;
+}
+
+.namedays-list {
+    padding: 10px;
+}
+
+.namedays-names {
+    font-size: 1.1rem;
+    color: var(--text-primary, #333);
+    font-weight: 500;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.namedays-placeholder {
+
+
+
+
+
+}
+
+/* Content page needs relative positioning for absolute child */
+.content-page {
+    position: relative;
+}
+
+/* Floating Close Button - Top Right of Content Box */
+.back-to-cal {
+    display: inline-block !important;
+    position: absolute !important;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: #dc3545 !important;  /* Red background */
+    color: white !important;
+    border: 2px solid #c82333 !important;  /* Darker red border */
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+    padding: 10px 20px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    transition: all 0.2s ease;
+    cursor: pointer !important;
+    border-radius: 30px !important;
+    white-space: nowrap;
+    width: auto !important;
+    height: auto !important;
+    min-width: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.back-to-cal:hover {
+    background: #c82333 !important;  /* Darker red on hover */
+    color: white !important;
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(220, 53, 69, 0.4);
+}
+
+.back-to-cal:active {
+    transform: scale(0.98);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .back-to-cal {
+        top: 10px;
+        right: 10px;
+        padding: 8px 16px !important;
+        font-size: 14px !important;
+    }
+}
+
+/* Floating Close Button - Top Right of Content Box */
+.content-page {
+    position: relative;
+}
+
+.back-to-cal {
+    display: inline-block !important;
+    position: absolute !important;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: #dc3545 !important;  /* Red background */
+    color: white !important;
+    border: 2px solid #c82333 !important;  /* Darker red border */
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+    padding: 10px 20px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    transition: all 0.2s ease;
+    cursor: pointer !important;
+    border-radius: 30px !important;
+    white-space: nowrap;
+    width: auto !important;
+    height: auto !important;
+    min-width: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.back-to-cal:hover {
+    background: #c82333 !important;  /* Darker red on hover */
+    color: white !important;
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(220, 53, 69, 0.4);
+}
+
+.back-to-cal:active {
+    transform: scale(0.98);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .back-to-cal {
+        top: 10px;
+        right: 10px;
+        padding: 8px 16px !important;
+        font-size: 14px !important;
+    }
+}
+/* AGGRESSIVE button styling - forces visibility */
+.content-page .back-to-cal,
+#culturalHub .back-to-cal,
+button.back-to-cal {
+    display: block !important;
+    position: absolute !important;
+    top: 20px !important;
+    right: 20px !important;
+    z-index: 9999 !important;
+    background: #dc3545 !important;
+    color: white !important;
+    border: 2px solid #c82333 !important;
+    padding: 10px 20px !important;
+    font-size: 16px !important;
+    border-radius: 30px !important;
+    cursor: pointer !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+/* ========================================
+@media (max-width: 480px) {
+    .section-divider {
+        font-size: 1rem !important;
+    }
+    
+    .rule-block table th,
+    .rule-block table td {
+        font-size: 0.75rem !important;
+        padding: 4px 2px !important;
+    }
+    
+    .rule-block h3 {
+        font-size: 1.1rem !important;
+    }
+    
+    .rule-block h4 {
+        font-size: 1rem !important;
+    }
+}
+
+/* ========================================
+   AGGRESSIVE MOBILE TABLE FIXES FOR RULES PAGE
+   ======================================== */
+
+@media (max-width: 768px) {
+    /* Fix section headings - reduce size dramatically */
+    .rules-container .section-divider {
+        font-size: 1rem !important;
+        line-height: 1.3 !important;
+        margin: 15px 0 10px 0 !important;
+    }
+    
+    /* Fix all h3 headings in rules */
+    .rules-container h3 {
+        font-size: 1.1rem !important;
+        line-height: 1.3 !important;
+        word-wrap: break-word !important;
+    }
+    
+    .rules-container h4 {
+        font-size: 1rem !important;
+    }
+    
+    /* Make tables responsive - convert to block layout */
+    .rule-block table {
+        font-size: 0.85rem !important;
+        display: block !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        white-space: nowrap !important;
+    }
+    
+    .rule-block table thead,
+    .rule-block table tbody {
+        display: block !important;
+    }
+    
+    .rule-block table tr {
+        display: table !important;
+        width: 100% !important;
+        table-layout: fixed !important;
+    }
+    
+    .rule-block table th,
+    .rule-block table td {
+        display: table-cell !important;
+        padding: 8px 4px !important;
+        font-size: 0.8rem !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+        vertical-align: top !important;
+    }
+    
+    /* Ensure all columns are visible with proper widths */
+    .rule-block table th:nth-child(1),
+    .rule-block table td:nth-child(1) {
+        width: 20% !important;
+        min-width: 50px !important;
+    }
+    
+    .rule-block table th:nth-child(2),
+    .rule-block table td:nth-child(2) {
+        width: 40% !important;
+    }
+    
+    .rule-block table th:nth-child(3),
+    .rule-block table td:nth-child(3) {
+        width: 40% !important;
+    }
+    
+    /* Prevent colored text from overflowing */
+    .rule-block table span[style*="color"] {
+        display: inline !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+        max-width: 100% !important;
+    }
+    
+    /* Add scroll indicator shadow */
+    .rule-block > div[style*="background: white"] {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        box-shadow: inset -10px 0 10px -10px rgba(0,0,0,0.1) !important;
+    }
+    
+    /* Reduce padding in rule blocks */
+    .rule-block {
+        padding: 12px 8px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    /* Fix example text size */
+    .rule-block p[style*="font-size: 1.1em"],
+    .rule-block p[style*="font-size: 1.2em"] {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+    }
+    
+    /* Fix color legend grid */
+    .color-legend div[style*="display: grid"] {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+    }
+    
+    /* Reduce color legend box padding */
+    .color-legend div > div {
+        padding: 8px !important;
+        font-size: 0.85rem !important;
+    }
+    
+    /* Fix structure examples in white boxes */
+    .rule-block div[style*="background: white"] p {
+        font-size: 0.85rem !important;
+        margin: 8px 0 !important;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .rules-container .section-divider {
+        font-size: 0.95rem !important;
+    }
+    
+    .rules-container h3 {
+        font-size: 1rem !important;
+    }
+    
+    .rule-block table {
+        font-size: 0.75rem !important;
+    }
+    
+    .rule-block table th,
+    .rule-block table td {
+        font-size: 0.7rem !important;
+        padding: 6px 2px !important;
+    }
+}
+
+/* ========================================
+   FINAL MOBILE FIX FOR RULES PAGE TABLES
+   ======================================== */
+/* ========================================
+   RULES PAGE - MOBILE TABLE HORIZONTAL SCROLL FIX
+   ======================================== */
+
+/* Desktop - normal display */
+.rules-container {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.rule-block table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Mobile - enable horizontal scrolling for tables */
+@media (max-width: 768px) {
+    /* Reduce heading sizes for mobile */
+    .rules-container .section-divider {
+        font-size: 0.9rem !important;
+        line-height: 1.2 !important;
+        margin: 10px 0 8px 0 !important;
+    }
+    
+    .rules-container h3 {
+        font-size: 0.95rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .rules-container h4 {
+        font-size: 0.85rem !important;
+    }
+    
+    /* CRITICAL: Wrap all tables in scrollable containers */
+    .rule-block > div[style*="background: white"],
+    .rule-block > div[style*="background:#fffbf0"] {
+        overflow-x: auto !important;
+        overflow-y: visible !important;
+        -webkit-overflow-scrolling: touch !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        display: block !important;
+        padding: 10px !important;
+        margin: 10px 0 !important;
+        box-sizing: border-box !important;
+        position: relative !important;
+    }
+    
+    /* Add scroll indicator hint */
+    .rule-block > div[style*="background: white"]::after {
+        content: '← Swipe to see all columns →';
+        display: block;
+        text-align: center;
+        font-size: 0.7rem;
+        color: #999;
+        background: linear-gradient(to right, rgba(255,215,0,0.1), rgba(74,144,226,0.1));
+        padding: 6px;
+        margin: 10px -10px -10px -10px;
+        border-radius: 0 0 6px 6px;
+        font-style: italic;
+        border-top: 1px dashed #ddd;
+    }
+    
+    /* Force tables wider than viewport to enable scroll */
+    .rule-block table {
+        min-width: 580px !important;
+        width: 580px !important;
+        display: table !important;
+        table-layout: fixed !important;
+        font-size: 0.75rem !important;
+        margin: 0 !important;
+        border-collapse: collapse !important;
+    }
+    
+    /* Fixed column widths - ensures all 3 columns visible when scrolled */
+    .rule-block table th:nth-child(1),
+    .rule-block table td:nth-child(1) {
+        width: 110px !important;
+        min-width: 110px !important;
+    }
+    
+    .rule-block table th:nth-child(2),
+    .rule-block table td:nth-child(2) {
+        width: 220px !important;
+        min-width: 220px !important;
+    }
+    
+    .rule-block table th:nth-child(3),
+    .rule-block table td:nth-child(3) {
+        width: 220px !important;
+        min-width: 220px !important;
+    }
+    
+    /* Ensure text wraps properly within cells */
+    .rule-block table th,
+    .rule-block table td {
+        padding: 10px 8px !important;
+        font-size: 0.75rem !important;
+        word-wrap: break-word !important;
+        white-space: normal !important;
+        vertical-align: top !important;
+        box-sizing: border-box !important;
+        line-height: 1.3 !important;
+    }
+    
+    /* Ensure colored spans don't break layout */
+    .rule-block table span[style*="color"] {
+        display: inline !important;
+        word-break: break-word !important;
+        white-space: normal !important;
+    }
+    
+    /* Reduce example text size */
+    .rule-block p[style*="font-size: 1.1em"],
+    .rule-block p[style*="font-size: 1.2em"] {
+        font-size: 0.85rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    /* Fix color legend grid for mobile */
+    .color-legend div[style*="display: grid"] {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+    }
+    
+    /* Ensure rule blocks don't overflow */
+    .rule-block {
+        overflow-x: visible !important;
+        padding: 15px !important;
+        margin-bottom: 20px !important;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .rule-block table {
+        min-width: 520px !important;
+        width: 520px !important;
+        font-size: 0.7rem !important;
+    }
+    
+    .rule-block table th,
+    .rule-block table td {
+        font-size: 0.7rem !important;
+        padding: 8px 6px !important;
+    }
+    
+    .rule-block table th:nth-child(1),
+    .rule-block table td:nth-child(1) {
+        width: 90px !important;
+        min-width: 90px !important;
+    }
+    
+    .rule-block table th:nth-child(2),
+    .rule-block table td:nth-child(2) {
+        width: 200px !important;
+        min-width: 200px !important;
+    }
+    
+    .rule-block table th:nth-child(3),
+    .rule-block table td:nth-child(3) {
+        width: 200px !important;
+        min-width: 200px !important;
+    }
+}
+
+/* End of Rules Table Mobile Fix */
+
+/* ========================================
+   DARK MODE SUPPORT FOR RULES PAGE
+   Respects system preference (prefers-color-scheme)
+   ======================================== */
+
+/* Dark mode media query */
+@media (prefers-color-scheme: dark) {
+    
+    /* Main page background */
+    body {
+        background-color: #1a1a2e !important;
+        color: #e0e0e0 !important;
+    }
+    
+    /* Rules container */
+    .rules-container {
+        background-color: #1a1a2e !important;
+        color: #e0e0e0 !important;
+    }
+    
+    /* All rule blocks - dark background */
+    .rule-block {
+        background-color: rgba(30, 30, 50, 0.6) !important;
+        color: #e0e0e0 !important;
+    }
+    
+    /* White background boxes inside rule blocks -> dark */
+    .rule-block > div[style*="background: white"],
+    .rule-block > div[style*="background:#fffbf0"] {
+        background: rgba(40, 40, 60, 0.8) !important;
+        color: #e0e0e0 !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    /* Tables - dark background */
+    .rule-block table {
+        background-color: rgba(30, 30, 50, 0.9) !important;
+        color: #e0e0e0 !important;
+    }
+    
+    /* Table headers */
+    .rule-block table thead tr {
+        background-color: rgba(50, 50, 70, 0.9) !important;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2) !important;
+    }
+    
+    .rule-block table th {
+        color: #f0f0f0 !important;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2) !important;
+    }
+    
+    /* Table rows */
+    .rule-block table tbody tr {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    .rule-block table td {
+        color: #e0e0e0 !important;
+    }
+    
+    /* Color legend section */
+    .color-legend {
+        background: rgba(40, 40, 60, 0.5) !important;
+        color: #e0e0e0 !important;
+    }
+    
+    .color-legend div[style*="background: rgba"] {
+        background: rgba(50, 50, 70, 0.3) !important;
+    }
+    
+    .color-legend small {
+        color: #b0b0b0 !important;
+    }
+    
+    /* Section dividers */
+    .section-divider {
+        color: #ffd700 !important;
+        border-bottom-color: rgba(255, 215, 0, 0.4) !important;
+    }
+    
+    /* Headings */
+    .rules-container h2,
+    .rules-container h3,
+    .rules-container h4 {
+        color: #f0f0f0 !important;
+    }
+    
+    /* Paragraphs */
+    .rules-container p {
+        color: #d0d0d0 !important;
+    }
+    
+    /* Code elements */
+    .rules-container code {
+        background-color: rgba(60, 60, 80, 0.8) !important;
+        color: #ffd700 !important;
+        border: 1px solid rgba(255, 215, 0, 0.3) !important;
+    }
+    
+    /* Scroll indicator - adjust for dark mode */
+    .rule-block > div[style*="background: white"]::after {
+        background: linear-gradient(to right, rgba(255,215,0,0.2), rgba(74,144,226,0.2)) !important;
+        color: #b0b0b0 !important;
+        border-top-color: rgba(255, 255, 255, 0.2) !important;
+    }
+    
+    /* Critical difference box (yellow box) */
+    .rule-block > div[style*="background: #fffbf0"] {
+        background: rgba(60, 50, 30, 0.6) !important;
+        border-color: rgba(255, 215, 0, 0.5) !important;
+    }
+    
+    /* Ensure colored text remains visible in dark mode */
+    /* These colors are already bright enough, but ensure they stand out */
+    .rule-block span[style*="color: #4a90e2"] {
+        /* Blue - Nominative Ordinals - already good */
+    }
+    
+    .rule-block span[style*="color: #ffd700"] {
+        /* Gold - Genitive Ordinals - already good */
+    }
+    
+    .rule-block span[style*="color: #f39c12"] {
+        /* Orange - Genitive Months - already good */
+    }
+    
+    .rule-block span[style*="color: #9b59b6"] {
+        /* Purple - Year - already good */
+    }
+    
+    .rule-block span[style*="color: #e74c3c"] {
+        /* Red - Genitive Marker - already good */
+    }
+    
+    /* Content pages general dark mode */
+    .content-page {
+        background-color: #1a1a2e !important;
+        color: #e0e0e0 !important;
+    }
+    
+    .content-body {
+        background-color: #1a1a2e !important;
+        color: #e0e0e0 !important;
+    }
+    
+    /* Back button */
+    .pill-btn.back-to-cal {
+        background-color: rgba(74, 144, 226, 0.3) !important;
+        color: #4a90e2 !important;
+        border: 1px solid rgba(74, 144, 226, 0.5) !important;
+    }
+    
+    .pill-btn.back-to-cal:hover {
+        background-color: rgba(74, 144, 226, 0.5) !important;
+    }
+}
+
+/* Light mode - ensure original colors are preserved */
+@media (prefers-color-scheme: light) {
+    /* Keep existing light mode styles */
+    body {
+        background-color: #f8f9fa !important;
+        color: #333 !important;
+    }
+}
+/* ========================================
+   BACK BUTTON - STICKY WITHIN CONTENT BOX - RED
+   Must be at END of CSS to override everything
+   ======================================== */
+
+/* Override ALL previous back-to-cal styles */
+.back-to-cal,
+button.back-to-cal,
+.pill-btn.back-to-cal,
+.content-page .back-to-cal,
+#culturalHub .back-to-cal,
+#rulesPage .back-to-cal {
+    position: sticky !important;  /* STICKY - floats within content box */
+    top: 20px !important;
+    right: 20px !important;
+    left: auto !important;
+    bottom: auto !important;
+    float: right !important;  /* Float to right side */
+    margin-left: auto !important;
+    z-index: 100 !important;
+    
+    /* Size */
+    padding: 8px 16px !important;
+    width: auto !important;
+    height: auto !important;
+    min-width: auto !important;
+    border-radius: 20px !important;
+    
+    /* Typography */
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    
+    /* Colors - RED background */
+    background-color: #E6192E !important;
+    color: white !important;
+    border: 2px solid #C0162A !important;
+    
+    /* Effects */
+    box-shadow: 0 2px 8px rgba(230, 25, 46, 0.3) !important;
+    backdrop-filter: blur(10px) !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    transform: none !important;
+    display: inline-block !important;
+}
+
+/* Make sure content-page is positioned */
+.content-page {
+    position: relative !important;
+}
+
+/* Remove any ::before content */
+.back-to-cal::before,
+button.back-to-cal::before,
+.pill-btn.back-to-cal::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* Hover state - darker red */
+.back-to-cal:hover,
+button.back-to-cal:hover,
+.pill-btn.back-to-cal:hover {
+    background-color: #C0162A !important;
+    color: white !important;
+    border-color: #A01220 !important;
+    box-shadow: 0 4px 12px rgba(230, 25, 46, 0.5) !important;
+    transform: scale(1.05) !important;
+}
+
+/* Dark mode - keep red */
+@media (prefers-color-scheme: dark) {
+    .back-to-cal,
+    button.back-to-cal,
+    .pill-btn.back-to-cal {
+        background-color: #E6192E !important;
+        color: white !important;
+        border-color: #C0162A !important;
+    }
+    
+    .back-to-cal:hover,
+    button.back-to-cal:hover,
+    .pill-btn.back-to-cal:hover {
+        background-color: #C0162A !important;
+        color: white !important;
+        border-color: #A01220 !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .back-to-cal,
+    button.back-to-cal,
+    .pill-btn.back-to-cal {
+        padding: 6px 12px !important;
+        font-size: 0.85rem !important;
+        top: 15px !important;
+    }
+}
+/* Firefox compatibility fixes - add at END of CSS */
+
+/* Ensure grid gap works in Firefox */
+#calendarGrid {
+    display: grid !important;
+    grid-template-columns: repeat(7, 1fr) !important;
+    gap: 5px !important;
+    grid-gap: 5px !important; /* Fallback for older Firefox */
+}
+
+/* Ensure calendar container doesn't expand */
+.calendar-container {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Fix flex gaps in Firefox */
+.weekdays {
+    gap: 5px;
+    column-gap: 5px; /* Firefox fallback */
+}
+
+/* Ensure body doesn't have extra spacing */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Mobile gap fix for Firefox */
+@media (max-width: 768px) {
+    #calendarGrid {
+        gap: 3px !important;
+        grid-gap: 3px !important;
+    }
+    
+    .weekdays {
+        gap: 3px;
+        column-gap: 3px;
+    }
+}
+/* Fix 1: Constrain calendar width on desktop */
+#calendarView {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.calendar-container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Fix 2: Ensure search button is visible on mobile in Cultural page */
+.namedays-display {
+    display: block !important;
+}
+
+/* Make search button more visible on mobile */
+@media (max-width: 768px) {
+    #namedaysSection button#navSearch {
+        font-size: 1.3rem !important;
+        padding: 6px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #namedaysSection button#navSearch {
+        font-size: 1.2rem !important;
+        padding: 4px !important;
+    }
+}
+/* Make calendar 20% smaller on desktop (500px -> 400px) */
+#calendarView {
+    max-width: 400px !important;
+    margin: 0 auto;
+}
+
+.calendar-container {
+    max-width: 400px !important;
+    margin: 0 auto;
+}
+
+/* Ensure calendar doesn't expand beyond this on any screen */
+@media (min-width: 769px) {
+    #calendarView {
+        max-width: 400px !important;
+    }
+    
+    .calendar-container {
+        max-width: 400px !important;
+    }
+}
+
+/* Force search button to be visible on Cultural page */
+#culturalHub #navSearch {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Increase calendar phrase font sizes to 150% */
+#plPhrase, .phrase-pl {
+    font-size: 1.1em !important; /* 150% of base */
+}
+
+#phoneticPhrase, .phrase-phonetic {
+    font-size: 1.1em !important; /* 150% of base */
+}
+
+#enPhrase, .phrase-en {
+    font-size: 1.1em !important; /* 150% of base */
+}
+
+/* Also increase the phrase display container if it exists */
+.phrase-display {
+    font-size: 1.1em !important;
+}
+
+/* Fix help modal scrolling */
+.modal-overlay .modal-content {
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    position: relative;
+}
+
+.modal-overlay .about-body {
+    max-height: calc(90vh - 60px) !important;
+    overflow-y: auto !important;
+}
+
+/* Fix modal content box-sizing */
+.modal-overlay .modal-content,
+.modal-overlay .about-body {
+    box-sizing: border-box !important;
+}
+
+/* Fix scrollbar positioning - remove padding from modal-content, add to about-body */
+.modal-overlay .modal-content {
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+.modal-overlay .about-body {
+    padding: 25px !important;
+    box-sizing: border-box !important;
+}
+
+/* Ensure feedback button is visible on desktop */
+#feedbackBtn, .pill-btn-feedback {
+    display: block !important;
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Hide the old × close button */
+.modal-overlay .close-btn {
+    display: none !important;
+}
+
+/* Fix scrollbar to be at edge of content */
+.modal-overlay .modal-content {
+    padding: 0 !important;
+    overflow: visible !important;
+}
+
+.modal-overlay .about-body {
+    padding: 60px 25px 25px 25px !important; /* Top padding for Back button */
+    max-height: 80vh !important;
+    overflow-y: auto !important;
+    box-sizing: border-box !important;
+}
+
+/* Make feedback button visible on desktop - force display */
+.modal-overlay #feedbackBtn,
+.modal-overlay .pill-btn-feedback {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    margin-top: 15px !important;
+}
+
+/* COMPLETE FIX for modal scrollbar positioning */
+.modal-overlay .modal-content {
+    padding: 25px !important;
+    max-height: 85vh !important;
+    overflow-y: auto !important;
+    box-sizing: border-box !important;
+}
+
+.modal-overlay .about-body {
+    padding: 40px 0 0 0 !important; /* Only top padding for Back button space */
+    max-height: none !important;
+    overflow-y: visible !important;
+}
+
+/* Fix horizontal scroll on rules page */
+#rulesPage {
+    overflow-x: hidden !important;
+}
+
+#rulesPage .content-body {
+    overflow-x: hidden !important;
+    max-width: 100%;
+}
+
+#rulesPage p, 
+#rulesPage .rule-block {
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    max-width: 100%;
+}
+
+/* Fix help modal positioning - prevent bottom cutoff */
+.modal-overlay .modal-content {
+    margin: 5vh auto !important; /* Reduced from 10% to 5vh */
+    max-height: 90vh !important;
+    padding: 25px !important;
+    overflow-y: auto !important;
+    box-sizing: border-box !important;
+}
+
+.modal-overlay .about-body {
+    padding: 40px 0 0 0 !important;
+    max-height: none !important;
+    overflow-y: visible !important;
+}
+
+
+/* Anniversary dates - Purple/Violet theme */
+.calendar-day.has-anniversary {
+    border-top-color: #9c27b0 !important;
+    background-color: rgba(156, 39, 176, 0.08) !important;
+    color: #6a1b9a;
+}
+
+.calendar-day.has-anniversary:hover {
+    background-color: rgba(156, 39, 176, 0.15) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(156, 39, 176, 0.2);
+}
+
+.anniversary-badge {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    font-size: 10px;
+    background: rgba(156, 39, 176, 0.2);
+    padding: 1px 3px;
+    border-radius: 3px;
+    color: #7b1fa2;
+    font-weight: bold;
+}
+
+/* Holiday and Tradition badges on calendar */
+.holiday-badge, .tradition-badge {
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    font-size: 0.9rem;
+    z-index: 10;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+}
+
+
+
+
+/* Pagan Tradition Dates - Green Nature Theme */
+.has-pagan {
+    border-top-color: #4caf50 !important;
+    background-color: rgba(76, 175, 80, 0.08) !important;
+    color: #2e7d32;
+    position: relative;
+}
+
+.has-pagan::after {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 0.7rem;
+}
+
+.has-pagan.badge-count::after {
+    font-size: 0.65rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    .has-pagan {
+        background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+        border-color: #4caf50;
+        color: #e8f5e9;
+    }
+}
+

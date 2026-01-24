@@ -1,0 +1,107 @@
+/* Base Styles - Resets, Typography, Body */
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-dark);
+    background-image: linear-gradient(180deg, var(--seasonal-bg) 0%, var(--bg-dark) 600px);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+        display: block !important;
+    }
+
+body {
+        background-color: #1a1a2e !important;
+        color: #e0e0e0 !important;
+    }
+
+body {
+        background-color: #1a1a2e !important;
+        color: #e0e0e0 !important;
+    }
+
+body {
+        background-color: #f8f9fa !important;
+        color: #333 !important;
+    }
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    max-height: calc(90vh - 60px) !important;
+    overflow-y: auto !important;
+}
+
+body {
+    box-sizing: border-box !important;
+}
+
+body {
+    padding: 25px !important;
+    box-sizing: border-box !important;
+}
+
+body {
+    padding: 60px 25px 25px 25px !important; /* Top padding for Back button */
+    max-height: 80vh !important;
+    overflow-y: auto !important;
+    box-sizing: border-box !important;
+}
+
+body {
+    padding: 40px 0 0 0 !important; /* Only top padding for Back button space */
+    max-height: none !important;
+    overflow-y: visible !important;
+}
+
+body {
+    overflow-x: hidden !important;
+    max-width: 100%;
+}
+
+body {
+    padding: 40px 0 0 0 !important;
+    max-height: none !important;
+    overflow-y: visible !important;
+}
+
+p {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+
+p {
+        font-size: 0.85rem;
+    }
+
+p {
+        font-size: 0.85rem;
+    }
+
+p { margin-bottom: 15px; color: var(--text-dim); }
+
+p {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+p {
+        font-size: 0.85rem !important;
+        margin: 8px 0 !important;
+    }
+
+p {
+        color: #d0d0d0 !important;
+    }
+

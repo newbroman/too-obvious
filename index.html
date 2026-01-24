@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Say the date in Polish</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1e1e1e" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="icon-192.png" type="image/png"> <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="PL Date">
+    <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+
+
+    
+<body class="winter">
+    <noscript>
+        <div style="text-align: center; padding: 50px;">
+            <h2>Oops! JavaScript is required.</h2>
+            <p>Please enable JavaScript to use the Polish Date Master.</p>
+        </div>
+    </noscript>
+
+    <div class="brand-header">
+        <h1>Say the date in Polish</h1>
+    </div>
+
+    <header class="main-nav-container">
+        <div class="utility-controls">
+            <button id="navCalendar" class="nav-icon-btn" title="Calendar">📅</button>
+            <button id="navCulture" class="nav-icon-btn" title="Culture">📖</button>
+            <button id="navRules" class="nav-icon-btn" title="Grammar">⚖️</button>
+            <button id="navHelp" class="nav-icon-btn" title="Help">❓</button>
+            <div class="divider"></div>
+            <button id="meetingToggle" class="pill-btn mode-btn-written">Mode: Written (Genitive)</button>
+            <button id="langToggle" class="pill-btn-sm">EN</button>
+           
+        </div>
+    </header>
+
+    <main id="calendarSection">
+    <div class="calendar-navigation">
+        <div class="nav-controls-row">
+            <button id="prevMonth" class="nav-btn-arrow" aria-label="Previous Month">‹</button>
+            
+            <div class="rollers-container">
+                <select id="monthRoller" class="roller-select"></select>
+                <input type="number" id="yearInput" value="2026" min="-1000" max="3000">
+            </div>
+            
+            <button id="nextMonth" class="nav-btn-arrow" aria-label="Next Month">›</button>
+        </div>
+    </div>
+
+        <div class="calendar-container">
+            <div class="weekdays"></div>
+            <div id="calendarGrid" class="calendar-grid"></div>
+        </div>
+    </main>
+
+    <section id="culturalHub" class="content-page" style="display: none; position: relative;">
+        <button id="cultureBackBtn" class="pill-btn back-to-cal">Back</button>
+        <h1>Polish Cultural Traditions</h1>
+        <button id="navSearch" class="nav-icon-btn" title="Name Search" style="position: absolute; top: 15px; right: 15px; width: 50px; height: 50px; font-size: 1.5rem; padding: 0; background: white; border: 2px solid #333; border-radius: 50%; z-index: 100; display: flex; align-items: center; justify-content: center; cursor: pointer;">🔍</button>
+        <div class="content-body">
+            <p>In Poland, <strong>Name Days</strong> are often more important than birthdays. Most Polish calendars list the names associated with each day.</p>
+            <h2>Imieniny (Name Days)</h2>
+            
+            <div id="namedaysSection" class="namedays-display">
+                <h3>Names for Selected Date</h3>
+                <div id="namedaysList" class="namedays-list">
+                    <p class="namedays-placeholder">Select a date in the calendar to see name days</p>
+                </div>
+            </div>
+            <h2>Holidays & Customs</h2>
+            <p>Look for days with <em>red borders</em> in the calendar to identify national holidays and significant celebrations.</p>
+        </div>
+    </section>
+
+    <section id="rulesPage" class="content-page" style="display: none;">
+        <button id="rulesBackBtn" class="pill-btn back-to-cal">Back</button>
+        <h1>Grammar Rules</h1>
+        <div class="content-body">
+        <h2>1. Ordinal Numbers</h2>
+        <p>Polish dates always use <strong>Ordinal Numbers</strong> (1st, 2nd, etc.). You don't say "one January," you say "the first of January."</p>
+        
+        <h2>2. Written vs. Spoken (Cases)</h2>
+        <p><strong>Written (Genitive):</strong> The standard way to write dates or talk about appointments. <em>"On the 5th of January"</em> uses the Genitive case.</p>
+        <p><strong>Spoken (Nominative):</strong> Used for simple statements, like answering <em>"What day is it today?"</em></p>
+    </div>
+</section>
+
+<!-- Name Search Page -->
+<section id="nameSearchPage" style="display: none;">
+    <button id="helpBackBtn" class="pill-btn back-to-cal" style="position: absolute; top: 0.5rem; left: 1rem;">Back</button>
+    <div class="content-body">
+        <h2>🔍 Name Day Search</h2>
+        <p style="color: #666; margin-bottom: 10px;">Search for a name to find which dates it's celebrated</p>
+        <p style="color: #999; font-size: 0.9em; margin-bottom: 20px; font-style: italic;">
+            Click any result to practice pronouncing that date in Polish
+        </p>
+        
+        <div style="margin-bottom: 30px;">
+            <input type="text" id="nameSearchInput" placeholder="Enter a name (e.g., Jan, Maria)" 
+                   style="width: 100%; padding: 12px; font-size: 16px; border: 2px solid var(--border-color); border-radius: 8px; margin-bottom: 10px;">
+            <button id="nameSearchBtn" class="pill-btn" style="width: 100%; padding: 12px; font-size: 16px;">
+                Search
+            </button>
+        </div>
+        
+        <div id="nameSearchResults" style="min-height: 100px;">
+            <p style="color: #999; font-style: italic; text-align: center;">Enter a name to search</p>
+        </div>
+        
+    </div>
+</section>
+
+    <footer class="info-panel">
+        <div id="historicalNotice" style="display: none; padding: 8px; text-align: center; font-size: 0.85rem; background: rgba(139, 90, 43, 0.1); border-radius: 8px; margin-bottom: 10px;"></div>
+        
+        <div class="phrase-display">
+            <p id="plPhrase" class="phrase-pl">Wybierz datę</p>
+            <p id="phoneticPhrase" class="phrase-phonetic">vye-byezh dah-teh</p>
+            <p id="enPhrase" class="phrase-en">Select a date</p>
+        </div>
+
+        <div class="footer-controls">
+            <button id="playBtn" class="pill-btn">🔊 Listen</button>
+            <button id="repeatYearBtn" class="pill-btn">YEAR: ON</button>
+        </div>
+    </footer>
+
+    <script src="namedays.js"></script>
+    <script src="pagan-traditions.js"></script>
+    <script type="module" src="app.js"></script>
+<section id="helpPage" class="content-page" style="display: none;">
+    <button id="searchBackBtn" class="pill-btn back-to-cal" style="position: absolute; top: 0.5rem; left: 1rem;">Back</button>
+    <h1 id="helpTitle">Help</h1>
+    <div class="content-body">
+        
+        <h3 style="margin-bottom: 0.5rem;">🎯 How to Use This App</h3>
+
+        <div style="margin-bottom: 20px;">
+            <h4 style="margin: 10px 0 5px 0; color: var(--accent-color);">📅 Calendar Page</h4>
+            <ul id="helpCalList" style="margin: 5px 0; padding-left: 20px; line-height: 1.6; font-size: 0.9rem;">
+                <li><b>Click any date</b> to hear Polish pronunciation</li>
+                <li><b>Two pronunciation modes:</b>
+                    <ul style="margin: 3px 0; padding-left: 20px;">
+                        <li><i>"Today is..."</i> (Dzisiaj jest) - Nominative case</li>
+                        <li><i>"It's on..."</i> (To jest) - Genitive case for arranging meetings</li>
+                    </ul>
+                </li>
+                <li><b>Toggle between modes</b> using the button at the top</li>
+                <li><b>Toggle years</b> to include the year in the date pronunciation</li>
+            </ul>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <h4 style="margin: 10px 0 5px 0; color: var(--accent-color);">📖 Culture Page</h4>
+            <ul id="helpCultList" style="margin: 5px 0; padding-left: 20px; line-height: 1.6; font-size: 0.9rem;">
+                <li><b>Discover the meaning</b> of Polish day names and month names</li>
+                <li><b>Find out whose name day it is</b> on any date</li>
+                <li><b>Learn about holidays</b> happening in the current month</li>
+                <li><b>Search for names</b> using the red "Name Day Search" button to find when someone's name day occurs</li>
+            </ul>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <h4 style="margin: 10px 0 5px 0; color: var(--accent-color);">⚖️ Grammar Page</h4>
+            <ul id="helpGramList" style="margin: 5px 0; padding-left: 20px; line-height: 1.6; font-size: 0.9rem;">
+                <li><b>Master Polish numeral cases</b> - the key to correct date pronunciation</li>
+                <li><b>Learn when to use nominative vs. genitive</b> case</li>
+                <li><b>See detailed examples</b> with explanations</li>
+            </ul>
+        </div>
+        
+<hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+        
+        <h3 style="margin-bottom: 0.5rem;">🔊 Pronunciation Modes</h3>
+        <p style="font-size: 0.9rem; line-height: 1.5;">
+            The calendar page has <strong>two pronunciation modes</strong> for dates. 
+            Refer to the <strong>Grammar page (⚖️)</strong> for detailed explanations.
+        </p>
+        
+        <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+        
+        <h3 style="margin-bottom: 0.5rem;">🎂 Name Days (Imieniny)</h3>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <div></div>
+            <button id="helpNavSearch" class="pill-btn" style="background: #dc3545; color: white; border: none; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; cursor: pointer; white-space: nowrap;">🔍 Name Day Search</button>
+        </div>
+        <p style="font-size: 0.9rem; line-height: 1.5;">
+            <strong>In Poland, Name Days are often more important than birthdays!</strong> 
+            Each day of the year is dedicated to one or more saints or historical figures. 
+            If your name matches the saint of the day, it's your <em>imieniny</em> (name day), 
+            and friends and family celebrate you with flowers, cards, and well-wishes.
+        </p>
+        <p style="font-size: 0.9rem; line-height: 1.5;">
+            Most Polish calendars prominently display name days, and it's common to remember 
+            someone's name day even if you forget their birthday!
+        </p>
+        
+        <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+        
+        <h3 style="margin-bottom: 0.5rem;">🎉 Polish Holidays & Traditions</h3>
+        <p style="font-size: 0.9rem; line-height: 1.5;">
+            <strong>Poland has a rich calendar of holidays and traditions</strong> that reflect 
+            its Catholic heritage and Slavic roots.
+        </p>
+        <p style="font-size: 0.9rem; line-height: 1.5;">
+            <strong>Official Holidays:</strong> Days like <em>Wszystkich Świętych</em> (All Saints' Day) 
+            when millions of candles light up cemeteries, and <em>Wigilia</em> (Christmas Eve) 
+            with its sacred 12-dish meatless supper.
+        </p>
+        <p style="font-size: 0.9rem; line-height: 1.5;">
+            <strong>Cultural Traditions:</strong> Celebrations like <em>Andrzejki</em> (fortune-telling night), 
+            <em>Tłusty Czwartek</em> (Fat Thursday - donut day!), and <em>Dzień Babci</em> (Grandmothers' Day).
+        </p>
+        <p style="font-size: 0.9rem; line-height: 1.5;">
+            The calendar uses color coding to help you identify different types of special dates at a glance.
+        </p>
+        
+        <h4 style="margin: 15px 0 10px 0; color: var(--accent-color);">📊 Bank holidays, traditions and historical events</h4>
+        <div style="display: flex; flex-direction: column; gap: 10px; margin: 15px 0; padding: 15px; background: rgba(128,128,128,0.05); border-radius: 8px;">
+            
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 45px; height: 45px; background-color: rgba(220, 53, 69, 0.08); border-top: 5px solid #dc3545; border-bottom: 5px solid #dc3545; border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;"></div>
+                <div style="flex: 1;">
+                    <strong style="color: #dc3545;">Official Holidays</strong>
+                    <div style="font-size: 0.85rem; color: var(--text-dim);">National public holidays with double red bars</div>
+                </div>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 45px; height: 45px; background-color: rgba(33, 150, 243, 0.08); border-top: 5px solid #2196f3; border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;"></div>
+                <div style="flex: 1;">
+                    <strong style="color: #2196f3;">Cultural Traditions</strong>
+                    <div style="font-size: 0.85rem; color: var(--text-dim);">Important cultural celebrations with blue top bar</div>
+                </div>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 45px; height: 45px; background-color: rgba(255, 152, 0, 0.08); border-top: 5px solid #ff9800; border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;"></div>
+                <div style="flex: 1;">
+                    <strong style="color: #ff9800;">Historical Events</strong>
+                    <div style="font-size: 0.85rem; color: var(--text-dim);">Significant dates in Polish history with orange top bar</div>
+                </div>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 45px; height: 45px; background-color: rgba(156, 39, 176, 0.08); border-top: 5px solid #9c27b0; border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;"></div>
+                <div style="flex: 1;">
+                    <strong style="color: #9c27b0;">Historical Anniversaries</strong>
+                    <div style="font-size: 0.85rem; color: var(--text-dim);">Milestone anniversaries of past events with purple top bar</div>
+                </div>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 45px; height: 45px; background-color: rgba(76, 175, 80, 0.08); border-top: 5px solid #4caf50; border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;"></div>
+                <div style="flex: 1;">
+                    <strong style="color: #4caf50;">Pagan Traditions</strong>
+                    <div style="font-size: 0.85rem; color: var(--text-dim);">Ancient Slavic celebrations with green top bar</div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+        
+        <h3 style="margin-bottom: 0.5rem;">🔊 Audio Troubleshooting</h3>
+        <table style="width: 100%; border: none; font-size: 0.9rem; line-height: 1.5;">
+            <tr>
+                <td style="border: none; padding: 4px 8px 4px 0; vertical-align: top; white-space: nowrap;"><strong>Volume:</strong></td>
+                <td style="border: none; padding: 4px 0;">Check your device volume is turned up</td>
+            </tr>
+            <tr>
+                <td style="border: none; padding: 4px 8px 4px 0; vertical-align: top; white-space: nowrap;"><strong>Polish voice:</strong></td>
+                <td style="border: none; padding: 4px 0;">Settings → Accessibility → Spoken Content → Voices → Download Polish</td>
+            </tr>
+            <tr>
+                <td style="border: none; padding: 4px 8px 4px 0; vertical-align: top; white-space: nowrap;"><strong>Browsers:</strong></td>
+                <td style="border: none; padding: 4px 0;">Chrome, Safari, and Edge have best Polish support</td>
+            </tr>
+            <tr>
+                <td style="border: none; padding: 4px 8px 4px 0; vertical-align: top; white-space: nowrap;"><strong>Mobile:</strong></td>
+                <td style="border: none; padding: 4px 0;">iOS and Android have built-in Polish voices</td>
+            </tr>
+        </table>
+        
+        <hr style="margin: 15px 0; border: 0; border-top: 1px solid var(--border-color);">
+        <p id="helpDevNote" style="font-size: 0.85rem; color: var(--text-dim);">
+            Independent project. Your feedback helps me improve!
+        </p>
+        <button id="helpFeedbackBtn" class="pill-btn-feedback">Send Feedback</button>
+    </div>
+</section>
+    </div>
+</div>
+</body>
+</html>
