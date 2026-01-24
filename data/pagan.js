@@ -285,7 +285,8 @@ const paganTraditions = {
     }
 };
 
-// Export for use in other modules
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = paganTraditions;
-}
+// ES6 Export
+export default paganTraditions;
+
+// Named exports for convenience
+export const { hasPaganTradition, getPaganTradition, getIcon, getColor, getDescription, getAllTraditionsForMonth } = paganTraditions;

@@ -1,11 +1,33 @@
 # Version History
 
-## Current Version: 1.4.02
+## Current Version: 1.4.03
 
 ### Version Numbering System
 - **Major** (1.x.x): Major feature additions or breaking changes
-- **Minor** (x.4.x): New features, reorganizations, significant improvements
-- **Patch** (x.x.02): Bug fixes, minor tweaks, import path fixes
+- **Minor** (x.4.x): New features, reorganizations, significant improvements  
+- **Patch** (x.x.03): Bug fixes, minor tweaks, import path fixes
+
+---
+
+## v1.4.03 (2026-01-24)
+**Critical Bug Fix Release - Script Paths & Exports**
+
+### Bug Fixes:
+- ✅ Fixed pagan.js export from CommonJS to ES6 module
+- ✅ Fixed index.html script paths: `namedays.js` → `data/namedays.js`
+- ✅ Fixed index.html script paths: `pagan-traditions.js` → `data/pagan.js`
+- ✅ Started grammar page header translation (partial)
+- ✅ Service worker cache: `pl-date-v1403`
+
+### Issues Resolved:
+- Name search should now work (namedays.js loads correctly)
+- Pagan traditions should now display (proper ES6 export)
+- Grammar page headers now partially translate
+
+### Known Issues:
+- Culture page headers may need verification
+- Grammar page needs complete translation coverage
+- Rules page back button floating needs testing
 
 ---
 
@@ -46,42 +68,10 @@
 ### Changes:
 - 📁 Created folder structure: `data/`, `utils/`, `pages/`, `components/`
 - 📦 Moved 13 files to appropriate folders
-- 🔄 Renamed files for clarity:
-  - `holiday.js` → `data/holidays.js`
-  - `color-utils.js` → `utils/colors.js`
-  - `rules.js` → `pages/grammar.js`
-  - `ui-renderer.js` → `components/info-panel.js`
+- 🔄 Renamed files for clarity
 - 📝 Updated all import statements
 - 🔧 Updated service worker with new paths
 - 📚 Added REORGANIZATION.md documentation
-
-### Benefits:
-- Clear organization by concern
-- Easier to find and edit files
-- Better for collaboration
-- AI-friendly structure
-- Scalable for future features
-
----
-
-## v1.3.61 (Previous)
-**Last Flat Structure Version**
-
-- All files at root level
-- 17 JavaScript files
-- No folder organization
-- Working version (backed up)
-
----
-
-## v1.3.46 (Changelog Reference)
-**Comprehensive Polish Calendar Coverage**
-
-- Complete holiday coverage (29 holidays)
-- Enhanced descriptions for all holidays
-- Pagan traditions with historical context
-- Fixed navigation icons
-- Improved UI
 
 ---
 
@@ -109,22 +99,3 @@
 - Major architecture changes
 - API changes
 - Service worker: New major version
-
----
-
-## Next Version Targets
-
-### v1.4.03+ (Patch)
-- Any additional bug fixes
-- Minor adjustments
-
-### v1.5.00 (Minor)
-- Extract calendar rendering → `pages/calendar.js`
-- Extract cultural page → `pages/cultural.js`
-- Extract search page → `pages/search.js`
-- Split CSS into modular files
-
-### v2.0.00 (Major)
-- Widget implementation
-- Mobile-first redesign
-- Potential PWA enhancements
