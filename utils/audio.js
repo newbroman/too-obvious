@@ -68,7 +68,6 @@ export function unlockAudio() {
         talk.volume = 0; 
         window.speechSynthesis.speak(talk);
         audioUnlocked = true;
-        console.log("🔊 Audio engine primed.");
     } catch (e) {
         console.error("Audio unlock failed", e);
     }
@@ -91,10 +90,8 @@ export function speakText(text, speed = 0.85) {
     window.activeUtterance.lang = 'pl-PL';
     if (polishVoice) {
         window.activeUtterance.voice = polishVoice;
-        console.log('🗣️ Using Polish voice:', polishVoice.name);
     } else if (fallbackVoice) {
         window.activeUtterance.voice = fallbackVoice;
-        console.log('🗣️ Using fallback voice:', fallbackVoice.name);
     } else {
         console.warn('⚠️ No voice available - attempting default');
     }
@@ -106,7 +103,6 @@ export function speakText(text, speed = 0.85) {
 
     // 5. Speak (with a tiny delay to ensure cancel() finished)
     setTimeout(() => {
-        console.log('🔊 Speaking:', text.substring(0, 50) + '...');
         window.speechSynthesis.speak(window.activeUtterance);
     }, 50);
 }

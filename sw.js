@@ -1,5 +1,5 @@
-const CACHE_NAME = 'pl-date-v1430';
-const VERSION = '1.4.30'; // Major.Minor.Patch
+const CACHE_NAME = 'pl-date-v1431';
+const VERSION = '1.4.31'; // Major.Minor.Patch
 const ASSETS = [
     '/',
     '/index.html',
@@ -16,22 +16,17 @@ const ASSETS = [
     '/data/namedays.json',
     '/data/historical.js',
     '/data/pagan.js',
-    '/data/phonetics.js',
     
     // Utils
-    '/utils/numbers.js',
-    '/utils/colors.js',
     '/utils/audio.js',
-    '/utils/dates.js',
     
     // Pages
     '/pages/help.js',
-    '/pages/grammar.js',
     
     // Components
     '/components/info-panel.js',
     
-    // Core modules (not yet moved)
+    // Core modules
     '/events.js',
     
     // Styles
@@ -70,7 +65,7 @@ self.addEventListener('activate', (event) => {
             return Promise.all(
                 cacheNames.map((cacheName) => {
                     if (cacheName !== CACHE_NAME) {
-                        console.log(`[SW v${VERSION}] Deleting old cache: ${cacheName}`);
+                        console.log(`[SW v${VERSION}] Deleting old cache:`, cacheName);
                         return caches.delete(cacheName);
                     }
                 })

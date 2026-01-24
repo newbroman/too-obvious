@@ -1,3 +1,18 @@
+// Development mode flag
+const DEV_MODE = false;
+
+// Add error boundary wrapper function at the top
+function safeEventHandler(handler, errorContext = 'Event handler') {
+    return function(...args) {
+        try {
+            return handler.apply(this, args);
+        } catch (error) {
+            console.error(`${errorContext} error:`, error);
+            // Optionally show user-friendly error message
+            return null;
+        }
+    };
+}
 import { updateHelpPage } from './pages/help.js';
 
 /**
@@ -266,6 +281,7 @@ if (holidayName) {
 }
 // 4. Initialize
 document.addEventListener('DOMContentLoaded', () => {
+    try {
     setupListeners(state, render);
 
     const infoBtn = document.getElementById('navInfo');
@@ -274,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const feedbackBtn = document.getElementById('feedbackBtn');
 
     if (infoBtn && aboutModal) {
-        infoBtn.addEventListener('click', () => {
+        infoBtn.addEventListener('click', safeEventHandler(() => {
             aboutModal.style.display = 'block';
         });
 
@@ -314,11 +330,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         navigator.serviceWorker.register('sw.js')
-            .then(reg => console.log('✅ Registered at:', reg.scope))
-            .catch(err => console.log('❌ Failed:', err));
     }
 });
 // Keep these at the very bottom for debugging
 window.render = render;
 window.state = state;
+    } catch (error) {
+        console.error('Fatal initialization error:', error);
+        document.body.innerHTML = '<div style="padding: 20px; text-align: center;"><h2>Application Error</h2><p>Failed to initialize. Please refresh the page.</p></div>';
+    }
 window.renderCalendarGrid = renderCalendarGrid;

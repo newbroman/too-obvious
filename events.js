@@ -15,10 +15,8 @@ export function setupListeners(state, render) {
     
     // --- 1. Audio and Logic Toggles ---
     const triggerAudioUnlock = () => {
-        console.log('🔊 Unlocking audio on user interaction...');
         import('./audio.js').then(m => {
             m.unlockAudio();
-            console.log('✅ Audio unlock attempted');
         });
         document.removeEventListener('touchstart', triggerAudioUnlock);
         document.removeEventListener('click', triggerAudioUnlock);
@@ -61,7 +59,6 @@ export function setupListeners(state, render) {
                     const speedLabel = playbackSpeed === 0.5 ? ' (Slow)' : '';
                     playBtn.innerText = (state.isPolish ? '🔊 Słuchaj' : '🔊 Listen') + speedLabel;
                     
-                    console.log('🔊 Speaking:', textToSpeak, 'at speed', playbackSpeed);
                     speakText(textToSpeak, playbackSpeed);
                     
                     // Reset button text after 2 seconds
