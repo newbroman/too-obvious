@@ -1392,7 +1392,7 @@ button.back-to-cal,
 .content-page .back-to-cal,
 #culturalHub .back-to-cal,
 #rulesPage .back-to-cal {
-    position: fixed !important;  /* ABSOLUTE - floats within content box top right */
+    position: sticky !important;  /* ABSOLUTE - floats within content box top right */
     top: 20px !important;
     right: 20px !important;
     left: auto !important;
@@ -1681,7 +1681,8 @@ body {
 
 /* Fix horizontal scroll on rules page */
 #rulesPage {
-    overflow-x: hidden !important;
+    /* Removed overflow-x: hidden to allow sticky positioning */
+    
 }
 
 #rulesPage .content-body {

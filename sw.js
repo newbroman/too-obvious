@@ -1,5 +1,5 @@
-const CACHE_NAME = 'pl-date-v1447';
-const VERSION = '1.4.47'; // Major.Minor.Patch
+const CACHE_NAME = 'pl-date-v1448';
+const VERSION = '1.4.48'; // Major.Minor.Patch
 const DEV_MODE = false; // Set to true for development logging
 
 const ASSETS = [
