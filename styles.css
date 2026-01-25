@@ -505,12 +505,11 @@ body {
 .content-page em { background: rgba(184, 134, 11, 0.1); padding: 2px 5px; border-radius: 4px; font-style: normal; color: var(--tan); }
 
 /* Section visibility shield */
-/* Section visibility shield */
 #calendarSection, #culturalHub, #rulesPage {
     width: 100% !important;
     padding-bottom: 220px !important;
-    display: block !important;
-    position: relative !important;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* --- 8. Holiday & Rule Details --- */
@@ -769,7 +768,7 @@ body {
 /* Floating Close Button - Top Right of Content Box */
 .back-to-cal {
     display: inline-block !important;
-    position: absolute !important;
+    position: sticky !important;
     top: 20px;
     right: 20px;
     z-index: 1000;
@@ -820,7 +819,7 @@ body {
 
 .back-to-cal {
     display: inline-block !important;
-    position: absolute !important;
+    position: sticky !important;
     top: 20px;
     right: 20px;
     z-index: 1000;
@@ -868,7 +867,7 @@ body {
 #culturalHub .back-to-cal,
 button.back-to-cal {
     display: block !important;
-    position: absolute !important;
+    position: sticky !important;
     top: 20px !important;
     right: 20px !important;
     z-index: 9999 !important;
@@ -1393,7 +1392,7 @@ button.back-to-cal,
 .content-page .back-to-cal,
 #culturalHub .back-to-cal,
 #rulesPage .back-to-cal {
-    position: absolute !important;  /* ABSOLUTE - floats within content box top right */
+    position: sticky !important;  /* ABSOLUTE - floats within content box top right */
     top: 20px !important;
     right: 20px !important;
     left: auto !important;
@@ -1982,40 +1981,4 @@ button:focus,
 a:focus,
 .calendar-day:focus {
     outline-color: var(--accent-text);
-}
-
-/* ========================================
-   NUCLEAR OPTION - BACK BUTTON ABSOLUTE POSITIONING
-   Target specific button IDs with maximum specificity
-   ======================================== */
-#cultureBackBtn,
-#rulesBackBtn,
-#searchBackBtn,
-#helpBackBtn {
-    position: sticky !important;
-    top: 20px !important;
-    right: 20px !important;
-    z-index: 9999 !important;
-    float: right !important;
-    background: #E6192E !important;
-    color: white !important;
-    border: 2px solid #C0162A !important;
-    padding: 8px 16px !important;
-    border-radius: 20px !important;
-    font-size: 0.9rem !important;
-    font-weight: 600 !important;
-    cursor: pointer !important;
-    box-shadow: 0 2px 8px rgba(230, 25, 46, 0.3) !important;
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-#cultureBackBtn:hover,
-#rulesBackBtn:hover,
-#searchBackBtn:hover,
-#helpBackBtn:hover {
-    background: #C0162A !important;
-    transform: scale(1.05) !important;
-    box-shadow: 0 4px 12px rgba(230, 25, 46, 0.5) !important;
 }
