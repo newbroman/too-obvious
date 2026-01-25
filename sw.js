@@ -1,5 +1,7 @@
-const CACHE_NAME = 'pl-date-v1436';
-const VERSION = '1.4.36'; // Major.Minor.Patch
+const CACHE_NAME = 'pl-date-v1448';
+const VERSION = '1.4.48'; // Major.Minor.Patch
+const DEV_MODE = false; // Set to true for development logging
+
 const ASSETS = [
     '/',
     '/index.html',
@@ -37,10 +39,10 @@ const ASSETS = [
 ];
 
 self.addEventListener('install', (event) => {
-    console.log(`[SW v${VERSION}] Installing...`);
+    if (DEV_MODE) console.log(`[SW v${VERSION}] Installing...`);
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
-            console.log(`[SW v${VERSION}] Caching assets`);
+            if (DEV_MODE) console.log(`[SW v${VERSION}] Caching assets`);
             return cache.addAll(ASSETS);
         })
     );
@@ -53,7 +55,7 @@ self.addEventListener('fetch', (event) => {
                 return response;
             }
             return fetch(event.request).catch((error) => {
-                console.error(`[SW v${VERSION}] Fetch failed:`, error);
+                if (DEV_MODE) console.error(`[SW v${VERSION}] Fetch failed:`, error);
                 throw error;
             });
         })
@@ -61,13 +63,13 @@ self.addEventListener('fetch', (event) => {
 });
 
 self.addEventListener('activate', (event) => {
-    console.log(`[SW v${VERSION}] Activating...`);
+    if (DEV_MODE) console.log(`[SW v${VERSION}] Activating...`);
     event.waitUntil(
         caches.keys().then((cacheNames) => {
             return Promise.all(
                 cacheNames.map((cacheName) => {
                     if (cacheName !== CACHE_NAME) {
-                        console.log(`[SW v${VERSION}] Deleting old cache:`, cacheName);
+                        if (DEV_MODE) console.log(`[SW v${VERSION}] Deleting old cache:`, cacheName);
                         return caches.delete(cacheName);
                     }
                 })
