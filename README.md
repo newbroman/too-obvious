@@ -1,221 +1,76 @@
-# Polish Calendar Learning App - Changelog
+# Say the date in Polish
 
-## v1361 - Added Legend to Cultural Page
-**Date**: January 24, 2026
+A calendar-based Polish learning app: pick any date and see and hear how to say it in Polish, with phonetics, name days, holidays and historical events.
 
-### Changes
-- **Added legend section to Cultural page**: Shows all 5 event types with visual examples
-- **Bilingual support**: Legend text adapts to Polish/English mode
-- **Consistent styling**: Matches calendar cell styling with colored bars
-- Legend appears at bottom of Cultural page in events.js
+**Live app:** https://newbroman.github.io/too-obvious/
 
----
+## Features
 
-## v1360 - Complete Color Swap Implementation
-**Date**: January 24, 2026
+- Month calendar with month selector, year input (-1000 to 3000), previous/next buttons and swipe navigation on touch screens.
+- Selecting a date shows the Polish phrase, a phonetic rendering and the English translation, with a Listen button that speaks the Polish using the browser's speech synthesis.
+- Two phrasing modes, toggled from the header: "Today is" (nominative, for answering "what day is it?") and "It's on" (genitive, the written form used for appointments).
+- A YEAR ON/OFF toggle to include or leave out the year in the spoken date.
+- Grammar-based colour coding of the words in the Polish phrase, explained on the Grammar page.
+- English/Polish interface toggle (EN/PL), including the help and grammar pages.
+- Calendar markers for event types, each with its own colour bar: bank holidays (red, double bar), cultural traditions (blue), historical events (orange), anniversaries (purple) and pagan traditions (green). A legend is shown on the Culture page.
+- Culture page: month name derivations, bank holidays, traditions and historical events, and a name-day section (Imieniny).
+- Name Day Search: look up a name to find the dates it is celebrated, then click a result to practise that date.
+- Grammar page covering ordinal numbers and written (genitive) versus spoken (nominative) dates.
+- Help page, light/dark theme following the system setting, and a seasonal colour theme that follows the month shown.
+- Moveable holidays are calculated from Easter (for example Good Friday, Corpus Christi and Pentecost).
 
-### Changes
-- **Fixed calendar tradition styling**: .is-tradition now blue (#2196f3)
-- **Fixed detail page styling**: .tradition-item now blue (#2196f3)
-- **Fixed historical event hover**: Now uses orange instead of blue
-- **All color references updated**: Cultural Traditions → Blue, Historical Events → Orange
-- Complete consistency across calendar, detail pages, help text, and legends
+## Using it
 
----
+Open the live app in a modern browser. On a phone or tablet, use "Add to Home Screen" (or the browser's install option) to install it as a PWA; it has a web manifest and a service worker.
 
-## v1359 - Final Packaging
-**Date**: January 24, 2026
+Audio uses the Web Speech API. For proper Polish pronunciation your device needs a Polish (pl-PL) voice installed. If none is found the app falls back to the first available voice, which will sound wrong. On mobile the first tap unlocks audio.
 
-### Changes
-- Final repackaging with all v1358 changes verified
-- All files confirmed updated (styles.css, index.html, help.js, sw.js)
+The service worker precaches the main files, so the app is intended to work offline. See the Notes about its asset paths.
 
----
+## Project structure
 
-## v1358 - Color Swap & Cultural Page Consolidation
-**Date**: January 24, 2026
+| Path | Purpose |
+|------|---------|
+| `index.html` | Page markup for all views (calendar, culture, grammar, help, name search) |
+| `app.js` | Entry point: state, calendar rendering, language and mode toggles, service worker registration |
+| `events.js` | Event handlers, culture page and name search rendering, swipe navigation |
+| `data/` | Data modules: month/day names, holidays, name days (`namedays.json`), historical events, pagan traditions, phonetics |
+| `utils/` | Number and year-to-Polish conversion, date/era helpers, phrase colouring, speech synthesis |
+| `pages/` | Help page (`help.js`) and grammar page (`grammar.js`) content |
+| `components/info-panel.js` | The phrase, phonetics and English panel at the foot of the page |
+| `styles.css` | The stylesheet the app loads |
+| `debug-button.css` | Button overrides; listed in `sw.js` but not linked from `index.html` |
+| `styles/` | Split-out CSS from the v1.4.00 reorganisation; not linked from `index.html` |
+| `sw.js`, `manifest.json`, icons | Service worker, PWA manifest and app icons (PNG and WebP) |
+| `VERSION.md`, `COMPREHENSIVE_CHANGELOG.md`, `REORGANIZATION.md` | Version history, v1346 holiday coverage changelog, and the v1.4.00 folder reorganisation notes |
 
-### Changes
-- **Color swap**: Cultural Traditions now blue (#2196f3), Historical Events now orange (#ff9800)
-- **Cultural page updated**: Section renamed to "Bank holidays, traditions and historical events"
-- All 5 event types consolidated in one unified legend section
-- Legend boxes match calendar styling (top bar + subtle glow)
-- Updated help.js, styles.css, and index.html for consistency
+## Development
 
----
+There is no build step. Serve the folder with any static server and open the page:
 
-## v1357 - Double Bars Exclusive to Bank Holidays
-**Date**: January 24, 2026
+```
+python3 -m http.server
+```
 
-### Changes
-- Double bar styling now **exclusive to bank holidays only**
-- All other event types (cultural, historical, anniversaries, pagan) have single top bar
-- Clear visual hierarchy distinguishing official public holidays
+then open http://localhost:8000.
 
----
+`sw.js` uses a versioned cache (`CACHE_NAME`, currently `pl-date-v1448`, with a matching `VERSION` string). Bump both whenever you change any cached file, otherwise returning visitors keep the old copy.
 
-## v1355 - Prominent Double Red Bars
-**Date**: January 24, 2026
+## Notes
 
-### Changes
-- Made bottom red bar same 5px thickness as top bar for bank holidays
-- Both bars now equally prominent and eye-catching
+- `sw.js` lists its assets with leading-slash paths (`/index.html`, `/app.js` and so on). That works when the app is served from a domain root, as in the local server above, but on the GitHub Pages project URL (`/too-obvious/`) those resolve to the wrong place. Relative paths would be more reliable there. The list also omits some modules the app imports (`utils/numbers.js`, `utils/dates.js`, `utils/colors.js`, `data/phonetics.js`, `pages/grammar.js`), so offline use may be incomplete.
+- This is the current version of the app; the earlier "obvious" repository is superseded.
+- Events are stored as data in `data/`. Holiday coverage as of v1346 is about 14 national holidays, 15+ cultural observances, 5 pagan traditions and 33+ historical events; see `COMPREHENSIVE_CHANGELOG.md`.
 
----
+### Recent version history
 
-## v1354 - Added Red Bottom Bar
-**Date**: January 24, 2026
+Earlier notes are in `VERSION.md` (1.4.00 to 1.4.05). The cache version in `sw.js` is now 1.4.48.
 
-### Changes
-- Public bank holidays now have red bars on BOTH top and bottom
-- Enhanced visual prominence for official holidays
+- **v1.4.06 (2026-01-24):** day-name phonetics added to the phrase (for example "poh-nyeh-jah-wek" for Monday); phrase font hierarchy fixed (main 1.2rem, phonetic 0.95rem, English 0.8rem); pagan traditions removed from the top of the Culture page and their tag background removed; Rules page back button fixed in the top-left corner.
+- **v1361:** legend added to the Culture page showing all five event types, bilingual.
+- **v1358 to v1360:** colour swap (cultural traditions blue `#2196f3`, historical events orange `#ff9800`) applied across calendar, detail pages, help text and legends; Culture section renamed "Bank holidays, traditions and historical events".
+- **v1354 to v1357:** bank holidays given red bars on both top and bottom (5px each); double bars reserved for bank holidays, with a single top bar for all other types.
+- **v1346:** complete Polish holiday coverage: Walentynki, Dzień Flagi, Dożynki, Wielkopolska Uprising Day, Sylwester, Wielki Piątek, Wielka Sobota, Boże Ciało and Zielone Świątki, all with bilingual descriptions.
+- **v1345:** Easter Monday shown as "Śmigus-Dyngus (Lany Poniedziałek)"; pagan traditions integrated with a green theme and dark mode support.
 
----
-
-## v1346 - Complete Polish Holiday Coverage
-**Date**: January 23, 2026
-
-### New Fixed Holidays Added
-- **Walentynki 💕** (Feb 14) - Valentine's Day / Day of Lovers
-- **Dzień Flagi 🇵🇱** (May 2) - Day of the Flag celebrating national colors
-- **Dożynki 🌾** (Aug 28) - Modern Christian Harvest Festival
-- **Dzień Zwycięskiego Powstania Wielkopolskiego 🦅** (Dec 27) - Greater Poland Uprising Day
-- **Sylwester 🎆** (Dec 31) - New Year's Eve celebrations
-
-### New Moveable Holidays Added
-- **Wielki Piątek ✝️** (Good Friday) - Easter -2 days
-  - Way of the Cross processions, solemn observance
-- **Wielka Sobota 🥚** (Holy Saturday) - Easter -1 day
-  - Food blessing ceremony (Święconka) with baskets
-- **Boże Ciało ✨** (Corpus Christi) - Easter +60 days
-  - Spectacular street processions with flower carpets
-- **Zielone Świątki 🌿** (Pentecost) - Easter +49 days
-  - Enhanced with full description and emoji
-
-### Enhanced Descriptions
-- All new holidays have detailed cultural descriptions
-- Explains traditions, customs, and significance
-- Bilingual support maintained throughout
-
-### Total Holiday Coverage
-- **14 National Holidays** (official public holidays)
-- **15+ Cultural Observances** (traditions and celebrations)
-- **5 Pagan Traditions** (ancient Slavic festivals)
-- **33+ Historical Events** (anniversaries and commemorations)
-
----
-
-## v1345 - Śmigus-Dyngus Name Prominence & Pagan Traditions
-**Date**: January 23, 2026
-
-### Changes
-- **Śmigus-Dyngus name prominence**: Easter Monday displays as "Śmigus-Dyngus (Lany Poniedziałek) 💧"
-- Pagan traditions integrated with green theme
-- Dark mode support for all themes
-
----
-
-## Visual Legend
-
-- 🏛️ **Bronze gradient** = Historical event occurred on this exact date
-- 📅 **Purple gradient** = Anniversary of historical event
-- 🌿 **Green gradient** = Ancient pagan tradition/festival
-- 💧 **Water droplet** = Śmigus-Dyngus (Easter Monday water tradition)
-- ✝️ **Cross** = Good Friday solemn observance
-- 🥚 **Egg** = Holy Saturday food blessing
-- ✨ **Sparkles** = Corpus Christi processions
-- 🌾 **Wheat** = Harvest Festival (Dożynki)
-- 🇵🇱 **Flag** = National patriotic observances
-- 🎆 **Fireworks** = New Year's Eve (Sylwester)
-
-## Complete Polish Calendar System
-
-The app now provides comprehensive coverage of Polish culture:
-
-### Christian Calendar (Moveable)
-- Easter cycle with Holy Week observances
-- Pentecost and Corpus Christi celebrations
-- All major Catholic feast days
-
-### National Holidays
-- Independence Day, Constitution Day, Flag Day
-- Labor Day, All Saints' Day
-- Christmas and New Year celebrations
-
-### Folk Traditions
-- Harvest festivals (pagan and Christian)
-- Seasonal celebrations
-- Family observances (Grandparents, Mother's, Father's Days)
-
-### Pagan Traditions
-- Solstices: Kupala Night, Koliada
-- Equinoxes: Spring and Autumn celebrations
-- Ancestor veneration: Dziady
-
-### Historical Commemorations
-- 33+ significant dates in Polish history
-- From ancient times to modern independence
-- Battles, unions, and cultural milestones
-
----
-
-## Version History
-
-### v1.4.06 (2026-01-24)
-**Complete UI Polish - Final Fixes**
-
-#### ✅ Calendar Page Improvements:
-1. **Day Name Phonetics Added** - Phonetic phrase now includes day of week pronunciation (e.g., "poh-nyeh-jah-wek" for Monday)
-2. **Font Size Hierarchy Fixed**:
-   - Main phrase: 1.2rem (largest)
-   - Phonetic: 0.95rem (smaller)
-   - English: 0.8rem (smallest)
-
-#### ✅ Culture Page Fixes:
-3. **Pagan Traditions Removed from Top** - No longer displays in separate section at top of page
-4. **Pagan Tradition Tag Background** - Removed green background from tag, now uses default styling
-
-#### ✅ Navigation Fixes:
-5. **Rules Page Back Button** - Now properly floats in top-left corner with !important overrides
-
-#### 📝 Documentation:
-6. **Internal Folder Renamed** - Changed from v1400 to v1406 for consistency
-7. **README.md Updated** - Added comprehensive changelog
-
-#### Files Changed:
-- `components/info-panel.js` - Added day name phonetics to phrase
-- `styles/components/info-panel.css` - Fixed font size hierarchy
-- `events.js` - Removed pagan traditions top section, fixed tag styling
-- `index.html` - Added !important to rules back button positioning
-- `README.md` - Added changelog
-
----
-
-### v1.4.05 (2026-01-24)
-**Polish and Formatting Release**
-
-- ✅ Pagan traditions reformatted and moved to bottom
-- ✅ Holidays heading updated
-- ✅ Help page back button fixed
-- ✅ Help page translation fixed
-- ✅ Rules page back button positioning added
-
----
-
-### v1.4.04 (2026-01-24)
-**Comprehensive Bug Fix Release**
-
-- ✅ Script paths fixed
-- ✅ Name search fixed
-- ✅ Pagan traditions scripts loading
-- ✅ Help page headers translation
-- ✅ Grammar page headers translation
-
----
-
-### v1.4.00 (2026-01-24)
-**Major Reorganization**
-
-- 📁 Created folder structure: `data/`, `utils/`, `pages/`, `components/`
-- 📦 Moved 13 files to appropriate folders
-- 🔄 Renamed files for clarity
+Built by Martin Hollingham.
