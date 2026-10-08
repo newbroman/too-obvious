@@ -332,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        navigator.serviceWorker.register('sw.js')
+        navigator.serviceWorker.register('./sw.js')
     }
     } catch (error) {
         console.error('Fatal initialization error:', error);

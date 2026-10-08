@@ -25,7 +25,7 @@ Open the live app in a modern browser. On a phone or tablet, use "Add to Home Sc
 
 Audio uses the Web Speech API. For proper Polish pronunciation your device needs a Polish (pl-PL) voice installed. If none is found the app falls back to the first available voice, which will sound wrong. On mobile the first tap unlocks audio.
 
-The service worker precaches the main files, so the app is intended to work offline. See the Notes about its asset paths.
+The service worker precaches the app files (using relative paths, so it works under the `/too-obvious/` project URL), so the app works offline after the first load.
 
 ## Project structure
 
@@ -39,7 +39,7 @@ The service worker precaches the main files, so the app is intended to work offl
 | `pages/` | Help page (`help.js`) and grammar page (`grammar.js`) content |
 | `components/info-panel.js` | The phrase, phonetics and English panel at the foot of the page |
 | `styles.css` | The stylesheet the app loads |
-| `debug-button.css` | Button overrides; listed in `sw.js` but not linked from `index.html` |
+| `debug-button.css` | Button overrides; not linked from `index.html` and not cached by `sw.js` |
 | `styles/` | Split-out CSS from the v1.4.00 reorganisation; not linked from `index.html` |
 | `sw.js`, `manifest.json`, icons | Service worker, PWA manifest and app icons (PNG and WebP) |
 | `VERSION.md`, `COMPREHENSIVE_CHANGELOG.md`, `REORGANIZATION.md` | Version history, v1346 holiday coverage changelog, and the v1.4.00 folder reorganisation notes |
@@ -54,17 +54,16 @@ python3 -m http.server
 
 then open http://localhost:8000.
 
-`sw.js` uses a versioned cache (`CACHE_NAME`, currently `pl-date-v1448`, with a matching `VERSION` string). Bump both whenever you change any cached file, otherwise returning visitors keep the old copy.
+`sw.js` uses a versioned cache (`CACHE_NAME`, currently `pl-date-v1449`, with a matching `VERSION` string). Bump both whenever you change any cached file, otherwise returning visitors keep the old copy.
 
 ## Notes
 
-- `sw.js` lists its assets with leading-slash paths (`/index.html`, `/app.js` and so on). That works when the app is served from a domain root, as in the local server above, but on the GitHub Pages project URL (`/too-obvious/`) those resolve to the wrong place. Relative paths would be more reliable there. The list also omits some modules the app imports (`utils/numbers.js`, `utils/dates.js`, `utils/colors.js`, `data/phonetics.js`, `pages/grammar.js`), so offline use may be incomplete.
 - This is the current version of the app; the earlier "obvious" repository is superseded.
 - Events are stored as data in `data/`. Holiday coverage as of v1346 is about 14 national holidays, 15+ cultural observances, 5 pagan traditions and 33+ historical events; see `COMPREHENSIVE_CHANGELOG.md`.
 
 ### Recent version history
 
-Earlier notes are in `VERSION.md` (1.4.00 to 1.4.05). The cache version in `sw.js` is now 1.4.48.
+Earlier notes are in `VERSION.md` (1.4.00 to 1.4.05). The cache version in `sw.js` is now 1.4.49.
 
 - **v1.4.06 (2026-01-24):** day-name phonetics added to the phrase (for example "poh-nyeh-jah-wek" for Monday); phrase font hierarchy fixed (main 1.2rem, phonetic 0.95rem, English 0.8rem); pagan traditions removed from the top of the Culture page and their tag background removed; Rules page back button fixed in the top-left corner.
 - **v1361:** legend added to the Culture page showing all five event types, bilingual.

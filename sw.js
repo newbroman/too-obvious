@@ -1,41 +1,42 @@
-const CACHE_NAME = 'pl-date-v1448';
-const VERSION = '1.4.48'; // Major.Minor.Patch
+const CACHE_NAME = 'pl-date-v1449';
+const VERSION = '1.4.49'; // Major.Minor.Patch
 const DEV_MODE = false; // Set to true for development logging
 
 const ASSETS = [
-    '/',
-    '/index.html',
-    '/app.js',
-    '/sw.js',
-    '/manifest.json',
-    '/icon-192.png',
-    '/icon-192.webp',
-    '/icon-512.png',
-    '/icon-512.webp',
-    
-    // Data files
-    '/data/cultural.js',
-    '/data/holidays.js',
-    '/data/namedays.js',
-    '/data/namedays.json',
-    '/data/historical.js',
-    '/data/pagan.js',
-    
+    './',
+    './index.html',
+    './app.js',
+    './events.js',
+    './manifest.json',
+    './icon-192.png',
+    './icon-192.webp',
+    './icon-512.png',
+    './icon-512.webp',
+
+    // Data
+    './data/cultural.js',
+    './data/holidays.js',
+    './data/namedays.js',
+    './data/namedays.json',
+    './data/historical.js',
+    './data/pagan.js',
+    './data/phonetics.js',
+
     // Utils
-    '/utils/audio.js',
-    
+    './utils/audio.js',
+    './utils/numbers.js',
+    './utils/dates.js',
+    './utils/colors.js',
+
     // Pages
-    '/pages/help.js',
-    
+    './pages/help.js',
+    './pages/grammar.js',
+
     // Components
-    '/components/info-panel.js',
-    
-    // Core modules
-    '/events.js',
-    
+    './components/info-panel.js',
+
     // Styles
-    '/styles.css',
-    '/debug-button.css'
+    './styles.css'
 ];
 
 self.addEventListener('install', (event) => {

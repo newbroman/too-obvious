@@ -20,7 +20,7 @@ export function setupListeners(state, render) {
     
     // --- 1. Audio and Logic Toggles ---
     const triggerAudioUnlock = () => {
-        import('./audio.js').then(m => {
+        import('./utils/audio.js').then(m => {
             m.unlockAudio();
         });
         document.removeEventListener('touchstart', triggerAudioUnlock);
