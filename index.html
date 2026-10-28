@@ -299,5 +299,25 @@
 </section>
     </div>
 </div>
+<script>
+/* Keep the pages scrollable past the fixed date panel: the gap behind it follows the panel's real
+   height (it grows with larger text or longer dates), so no calendar day is ever hidden under it. */
+(function () {
+  function fit() {
+    var p = document.querySelector('.info-panel'); if (!p) return;
+    var h = Math.ceil(p.getBoundingClientRect().height) + 20;
+    ['calendarSection', 'culturalHub', 'rulesPage'].forEach(function (id) {
+      var el = document.getElementById(id); if (el) el.style.setProperty('padding-bottom', Math.max(220, h) + 'px', 'important');
+    });
+  }
+  function start() {
+    fit();
+    var p = document.querySelector('.info-panel');
+    if (p && window.ResizeObserver) new ResizeObserver(fit).observe(p);
+    window.addEventListener('resize', fit);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+})();
+</script>
 </body>
 </html>
